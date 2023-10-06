@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See LICENSE in the project root for license information.
  *---------------------------------------------------------------------------------------*/
 
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.dvd;
 
 public class App {
     public static void main(String[] args) {
