@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.sintaxe;
 
 //Imprima a soma de 1 até 1000.
 class Q2 {

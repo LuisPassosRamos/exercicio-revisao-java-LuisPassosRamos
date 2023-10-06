@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.sintaxe;
 
 //Imprima todos os múltiplos de 3, entre 1 e 100.
 class Q3 {

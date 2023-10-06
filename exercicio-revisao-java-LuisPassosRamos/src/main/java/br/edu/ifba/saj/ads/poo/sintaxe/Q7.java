@@ -1,13 +1,14 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.sintaxe;
 
 import java.util.Scanner;
 
 class Q7 {
     public static void main(String[] args) {
         int x;
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Digite um número inteiro:");
-        x = teclado.nextInt();
+        try (Scanner teclado = new Scanner(System.in)) {
+            System.out.println("Digite um número inteiro:");
+            x = teclado.nextInt();
+        }
         while (x  > 1) {
             if (x % 2 == 0) {
                 x = x / 2;

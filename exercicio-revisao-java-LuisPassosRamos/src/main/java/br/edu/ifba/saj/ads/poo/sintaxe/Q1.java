@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.sintaxe;
 
 //Imprima todos os números de 150 a 300.
 class Q1 {

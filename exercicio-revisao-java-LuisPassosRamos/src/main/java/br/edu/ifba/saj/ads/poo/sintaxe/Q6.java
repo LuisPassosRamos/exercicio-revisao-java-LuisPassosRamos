@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.sintaxe;
 
 public class Q6 {
     public static void main(String[] args) {
