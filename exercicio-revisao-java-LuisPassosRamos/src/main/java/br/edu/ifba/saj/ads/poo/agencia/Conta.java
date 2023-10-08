@@ -1,6 +1,6 @@
 package br.edu.ifba.saj.ads.poo.agencia;
 
-public class Conta {
+class Conta {
     private String nome;
     private int numero;
 
@@ -13,8 +13,6 @@ public class Conta {
         this.numero = numero;
 
     }
-
-
 
     @Override
     public String toString() {
