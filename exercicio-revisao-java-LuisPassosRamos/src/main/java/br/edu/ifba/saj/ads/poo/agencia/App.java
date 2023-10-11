@@ -6,17 +6,18 @@ public class App {
 
     public static void main(String[] args) {
 
-        Scanner teclado = new Scanner(System.in);
-        Agencia A1 = new Agencia(10);
-        
+        try (Scanner teclado = new Scanner(System.in)) {
+            Agencia A1 = new Agencia(10);
+            
 
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Digite o "+(i+1)+" nome.");
-            String nome = teclado.nextLine();
-            A1.adicionarConta(nome);
+            for (int i = 0; i < 5; i++) {
+                System.out.println("Digite o "+(i+1)+" nome.");
+                String nome = teclado.nextLine();
+                A1.adicionarConta(nome);
+            }
+
+            System.out.println(A1.getContas());
         }
-
-        System.out.println(A1.getContas());
 
     }
 }
