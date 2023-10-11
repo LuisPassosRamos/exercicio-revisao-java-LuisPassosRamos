@@ -7,8 +7,6 @@ class Carro {
     int marcha = 0;
     boolean ligado = false;
 
-  
-
     void ligar() {
         if (!ligado) {
             ligado = true;
@@ -56,14 +54,14 @@ class Carro {
                     System.out.println("Você está na marcha ré.");
                     break;
                 default:
-                    System.out.println("Você está na " + marcha+"ª marcha.");
+                    System.out.println("Você está na " + marcha + "ª marcha.");
                     break;
             }
         }
     }
 
     void marchaBaixo() {
-        if (marcha >= -1) {
+        if (marcha > -1) {
             marcha--;
             switch (marcha) {
                 case 0:
@@ -74,8 +72,13 @@ class Carro {
                     System.out.println("Você está na marcha ré.");
                     break;
                 default:
-                    System.out.println("Você está na " + marcha+"ª marcha.");
-                    break;
+                    if (marcha > 0) {
+                        System.out.println("Você está na " + marcha + "ª marcha.");
+                        break;
+                    } else {
+                        System.out.println("Você está na marcha mínima.");
+                        break;
+                    }
             }
 
         }
