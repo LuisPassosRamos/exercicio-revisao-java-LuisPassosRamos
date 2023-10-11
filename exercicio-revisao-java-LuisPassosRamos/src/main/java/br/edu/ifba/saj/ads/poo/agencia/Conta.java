@@ -16,7 +16,7 @@ class Conta {
 
     @Override
     public String toString() {
-        return "conta [nome=" + nome + ", numero=" + numero + "]\n";
+        return "conta [nome=" + nome + ", numero=" + numero + "]";
     }
     
 }
