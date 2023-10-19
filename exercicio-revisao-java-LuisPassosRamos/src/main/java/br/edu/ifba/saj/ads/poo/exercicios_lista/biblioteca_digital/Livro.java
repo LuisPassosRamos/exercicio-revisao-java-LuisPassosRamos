@@ -2,12 +2,12 @@ package br.edu.ifba.saj.ads.poo.exercicios_lista.biblioteca_digital;
 
 public class Livro{
     
-    ArrayList<Categoria> categorias; 
-    ArrayList<Autor> autores;
+    private ArrayList<Categoria> categorias; 
+    private Autor autor;
 
-    livro(){
+    public livro(Autor autor){
+        this.autor = autor;
         this.categorias = new ArrayList();
-        this.autores = new ArrayList();
     }
 
 }
