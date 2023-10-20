@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 public class Livro{
     
-    private Categoria categorias; 
+    private ArrayList<Categoria> categorias; 
     private Autor autor;
     private String nomeLivro;
 
     public Livro(Autor autor, String nomeLivro, Categoria categoria){
         this.autor = autor;
         this.nomeLivro = nomeLivro;
-        this.categorias = categoria;
+        this.categoria = new Arraylist<>();
+        this.categorias.add(categoria);
         categoria.novoLivro(this);
         autor.novoLivro(this);
     }
@@ -26,5 +27,17 @@ public class Livro{
 
     public String toString(){
         return "[Nome do livro: "+this.getNomeLivro()+"]\n[Categoria do livro: "+this.categorias.getName()+"]\n [Autor: "+this.getAutor()+"]";
+    }
+
+    public void novaCategoria(Categoria categoria){
+        this.categorias.add(categoria);
+    }
+
+    public Categoria buscaCategoria(String nomeCategoria){
+        for (Categoria categoria : this.categorias){
+            if(categoria.getNomeCategoria().equals(nomeCategoria)){
+                return this.categoria;
+            }
+        }
     }
 }

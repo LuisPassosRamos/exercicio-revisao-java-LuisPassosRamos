@@ -31,4 +31,8 @@ public class Categoria {
             }
         }
     }
+    
+    public String toString(){
+        return "[Nome da cateogria: "+this.nomeCategoria+"]";
+    }
 }
