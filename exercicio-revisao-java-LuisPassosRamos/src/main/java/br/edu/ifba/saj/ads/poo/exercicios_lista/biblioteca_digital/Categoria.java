@@ -24,15 +24,16 @@ public class Categoria {
         this.livro.add(livro);
     }
 
-    public Livro buscaLivro(String livroNome) {
+    public ArrayList<Livro> buscaLivro(String livroNome) {
         for (Livro livro : this.livro) {
-            if (livro.getnomeLivro().equals(livroNome)) {
+            if (livro.getNomeLivro().equals(livroNome)) {
                 return this.livro;
             }
         }
     }
-    
-    public String toString(){
-        return "[Nome da cateogria: "+this.nomeCategoria+"]";
+
+    @Override
+    public String toString() {
+        return "Categoria [nomeCategoria=" + nomeCategoria + ", livro=" + livro + "]";
     }
 }

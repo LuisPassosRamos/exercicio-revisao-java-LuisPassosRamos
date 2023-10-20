@@ -11,7 +11,7 @@ public class Livro{
     public Livro(Autor autor, String nomeLivro, Categoria categoria){
         this.autor = autor;
         this.nomeLivro = nomeLivro;
-        this.categoria = new Arraylist<>();
+        this.categorias = new ArrayList<>();
         this.categorias.add(categoria);
         categoria.novoLivro(this);
         autor.novoLivro(this);
@@ -25,19 +25,24 @@ public class Livro{
         return autor;
     }
 
-    public String toString(){
-        return "[Nome do livro: "+this.getNomeLivro()+"]\n[Categoria do livro: "+this.categorias.getName()+"]\n [Autor: "+this.getAutor()+"]";
+    public ArrayList<Categoria> getCategorias() {
+        return categorias;
     }
 
     public void novaCategoria(Categoria categoria){
         this.categorias.add(categoria);
     }
 
-    public Categoria buscaCategoria(String nomeCategoria){
+    public String buscaCategoria(String nomeCategoria){
         for (Categoria categoria : this.categorias){
             if(categoria.getNomeCategoria().equals(nomeCategoria)){
-                return this.categoria;
-            }
+                return this.categorias;
+            }else return "Nenhuma categoria foi encontrada";
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Livro [categorias=" + categorias + ", autor=" + autor + ", nomeLivro=" + nomeLivro + "]";
     }
 }

@@ -1,10 +1,12 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.biblioteca_digital;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Autor{
     private String nomeAutor;
-    ArrayList<Livro> livro;
+    private ArrayList<Livro> livro;
 
-    public autor(String nomeAutor){
+    public Autor(String nomeAutor){
         this.nomeAutor = nomeAutor;
         this.livro = new ArrayList<>();
     }
