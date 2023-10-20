@@ -4,12 +4,14 @@ package br.edu.ifba.saj.ads.poo.exercicios_lista.biblioteca_digital;
 Os livros pertencem a autores, e cada livro pode ser classificado em uma ou mais categorias. 
 Os usuários podem fazer pesquisas por autor ou categoria e visualizar os livros disponíveis. */
 
-public class App{
+public class App {
     public static void main(String[] args) {
         Autor autor1 = new Autor("William Spilberg");
         Categoria categoria1 = new Categoria("Drama");
-        Livro livro1 = new Livro("Hamlet", categoria1);
-
+        Categoria categoria2 = new Categoria("Tragedia");
+        Livro livro1 = new Livro(autor1, "Hamlet", categoria1);
+        livro1.novaCategoria(categoria2);
+        
         
     }
 }
