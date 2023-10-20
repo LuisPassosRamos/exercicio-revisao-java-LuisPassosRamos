@@ -12,7 +12,12 @@ public class Livro{
         this.autor = autor;
         this.nomeLivro = nomeLivro;
         this.categorias = categoria;
-        novoLivro(this);
+        categoria.novoLivro(this);
+        autor.novoLivro(this);
+    }
+
+    public String getNomeLivro() {
+        return nomeLivro;
     }
 
     public Autor getAutor() {
@@ -20,6 +25,6 @@ public class Livro{
     }
 
     public String toString(){
-        return "[Nome do livro: "+this.nomeLivro+"]\n[Categoria do livro: "+this.categorias.getName()+"]\n [Autor: "+autor+"]";
+        return "[Nome do livro: "+this.getNomeLivro()+"]\n[Categoria do livro: "+this.categorias.getName()+"]\n [Autor: "+this.getAutor()+"]";
     }
 }
