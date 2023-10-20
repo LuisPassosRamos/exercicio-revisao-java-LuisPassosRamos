@@ -6,6 +6,7 @@ Os usuários podem fazer pesquisas por autor ou categoria e visualizar os livros
 
 public class App{
     public static void main(String[] args) {
-        
+        Autor autor1 = new Autor("Steven Spilberg");
+        Categoria categoria1 = new Categoria("Terror");
     }
 }

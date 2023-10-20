@@ -5,18 +5,27 @@ public class Autor{
     ArrayList<Livro> livro;
 
     public autor(String nomeAutor){
-        livro = new ArrayList<>();
+        this.nomeAutor = nomeAutor;
+        this.livro = new ArrayList<>();
     }
 
     public ArrayList<Livro> getLivro() {
-        return livro;
+        return this.livro;
     }
 
     public String getNomeAutor() {
-        return nomeAutor;
+        return this.nomeAutor;
     }
 
     public void novoLivro(Livro livro) {
         this.livro.add(livro);
+    }
+
+    public void buscaLivro(String nomeLivro){
+        for (Livro livro : this.livro){
+            if (livro.getnomeLivro().equals(livroNome)) {
+                return this.livro;
+            }
+        }
     }
 }

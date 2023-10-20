@@ -13,11 +13,11 @@ public class Categoria {
     }
 
     public ArrayList<Livro> getLivro() {
-        return livro;
+        return this.livro;
     }
 
     public String getNomeCategoria() {
-        return nomeCategoria;
+        return this.nomeCategoria;
     }
 
     public void novoLivro(Livro livro) {
