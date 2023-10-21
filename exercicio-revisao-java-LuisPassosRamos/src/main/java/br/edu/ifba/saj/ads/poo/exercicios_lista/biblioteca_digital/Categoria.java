@@ -1,11 +1,10 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.biblioteca_digital;
 
-import java.util.List;
 import java.util.ArrayList;
 
 public class Categoria {
     private String nomeCategoria;
-    private ArrayList<Livro> livro;
+    private ArrayList<Livro> livros;
 
     public Categoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
@@ -13,7 +12,7 @@ public class Categoria {
     }
 
     public ArrayList<Livro> getLivro() {
-        return this.livro;
+        return this.livros;
     }
 
     public String getNomeCategoria() {
@@ -21,19 +20,20 @@ public class Categoria {
     }
 
     public void novoLivro(Livro livro) {
-        this.livro.add(livro);
+        this.livros.add(livro);
     }
 
-    public ArrayList<Livro> buscaLivro(String livroNome) {
-        for (Livro livro : this.livro) {
+    public Livro buscaLivro(String livroNome) {
+        for (Livro livro : this.livros) {
             if (livro.getNomeLivro().equals(livroNome)) {
-                return this.livro;
+                return livro;
             }
         }
+        return null;
     }
 
     @Override
     public String toString() {
-        return "Categoria [nomeCategoria=" + nomeCategoria + ", livro=" + livro + "]";
+        return "Categoria [nomeCategoria=" + nomeCategoria + ", livros=" + livros + "]";
     }
 }

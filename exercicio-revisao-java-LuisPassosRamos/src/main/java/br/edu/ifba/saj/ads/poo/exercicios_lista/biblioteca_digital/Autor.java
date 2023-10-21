@@ -1,5 +1,4 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.biblioteca_digital;
-import java.util.List;
 import java.util.ArrayList;
 
 public class Autor{
@@ -23,11 +22,12 @@ public class Autor{
         this.livro.add(livro);
     }
 
-    public void buscaLivro(String nomeLivro){
+    public Livro buscaLivro(String nomeLivro){
         for (Livro livro : this.livro){
-            if (livro.getnomeLivro().equals(livroNome)) {
-                return this.livro;
+            if (livro.getNomeLivro().equals(nomeLivro)) {
+                return livro;
             }
         }
+        return null;
     }
 }

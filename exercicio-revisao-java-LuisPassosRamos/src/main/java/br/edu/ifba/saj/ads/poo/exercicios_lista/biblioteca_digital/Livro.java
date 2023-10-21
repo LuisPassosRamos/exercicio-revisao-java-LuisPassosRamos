@@ -1,5 +1,4 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.biblioteca_digital;
-import java.util.List;
 import java.util.ArrayList;
 
 public class Livro{
@@ -33,12 +32,13 @@ public class Livro{
         this.categorias.add(categoria);
     }
 
-    public String buscaCategoria(String nomeCategoria){
+    public Categoria buscaCategoria(String nomeCategoria){
         for (Categoria categoria : this.categorias){
             if(categoria.getNomeCategoria().equals(nomeCategoria)){
-                return this.categorias;
-            }else return "Nenhuma categoria foi encontrada";
+                return categoria;
+            }
         }
+        return null;
     }
 
     @Override
