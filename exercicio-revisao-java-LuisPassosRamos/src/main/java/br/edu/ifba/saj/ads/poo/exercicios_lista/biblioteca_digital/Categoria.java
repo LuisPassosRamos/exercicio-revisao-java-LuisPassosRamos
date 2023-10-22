@@ -8,6 +8,7 @@ public class Categoria {
 
     public Categoria(String nomeCategoria) {
         this.nomeCategoria = nomeCategoria;
+        this.livros = new ArrayList<>();
 
     }
 
