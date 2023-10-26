@@ -12,6 +12,7 @@ public class Aluno {
     public Aluno(String nomeAluno, int matriculaAluno, Turma turma) {
         this.nomeAluno = nomeAluno;
         this.matriculaAluno = matriculaAluno;
+        this.turmas = new ArrayList<>();
         this.turmas.add(turma);
         turma.addAluno(this);
     }
@@ -33,5 +34,10 @@ public class Aluno {
 
     public List<Turma> getTurmas() {
         return Collections.unmodifiableList(turmas);
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno [nomeAluno=" + nomeAluno + ", matriculaAluno=" + matriculaAluno + "]";
     }
 }

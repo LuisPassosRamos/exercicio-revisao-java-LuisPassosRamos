@@ -37,4 +37,7 @@ public class Turma {
     public String toString() {
         return "Turma [serie=" + serie + ", alunos=" + alunos + "]";
     }
+
+    public void addProfessor(Professor professor) {
+    }
 }

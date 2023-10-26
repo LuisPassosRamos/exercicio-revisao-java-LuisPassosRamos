@@ -18,7 +18,9 @@ package br.edu.ifba.saj.ads.poo.gerenciamento_escola;
 public class Escola {
     public static void main(String[] args) {
         Turma turma1 = new Turma(1);
-        Aluno aluno = new Aluno("Luis", 1, turma1);
+        Professor professor1 = new Professor ("Guilherme", "POO", turma1);
+        Aluno aluno1 = new Aluno("Luis", 1, turma1);
+        System.out.println(professor1);
         
     }
 }

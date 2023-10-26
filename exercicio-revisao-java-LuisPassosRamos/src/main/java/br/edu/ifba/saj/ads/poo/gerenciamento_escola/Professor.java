@@ -12,7 +12,9 @@ public class Professor {
     public Professor(String nomeProfessor, String materiaProfessor, Turma turma) {
         this.nomeProfessor = nomeProfessor;
         this.materiaProfessor = materiaProfessor;
+        this.turmas = new ArrayList<>();
         this.turmas.add(turma);
+        turma.addProfessor(this);
     }
 
     public void addTurma(Turma turma) {
