@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.gerenciamento_escola;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,10 +9,10 @@ public class Turma {
     ArrayList<Aluno> alunos;
     ArrayList<Professor> professores;
 
-    public Turma(int serie, ArrayList<Aluno> alunos, ArrayList<Professor> professores) {
+    public Turma(int serie) {
         this.serie = serie;
-        this.alunos = alunos;
-        this.professores = professores;
+        this.alunos = new ArrayList<>();
+        this.professores = new ArrayList<>();
     }
 
     public void addAluno(Aluno aluno) {
