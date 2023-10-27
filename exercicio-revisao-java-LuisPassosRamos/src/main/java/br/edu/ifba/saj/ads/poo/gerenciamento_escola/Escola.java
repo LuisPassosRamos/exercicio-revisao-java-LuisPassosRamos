@@ -32,6 +32,12 @@ public class Escola {
         professor1.addTurma(turma1);
         professor3.addTurma(turma2);
         professor5.addTurma(turma3);
+
+        for (int i = 0; i < 3; i++) {
+            turma1.addAluno(new Aluno("Aluno "+(i+1), (i+1)));
+            turma2.addAluno(new Aluno("Aluno "+(i+1), (i+1)));
+            turma3.addAluno(new Aluno("Aluno "+(i+1), (i+1)));
+        }
         Aluno aluno1 = new Aluno("Luis", 1);
 
         System.out.println(turma1.getAlunos());
