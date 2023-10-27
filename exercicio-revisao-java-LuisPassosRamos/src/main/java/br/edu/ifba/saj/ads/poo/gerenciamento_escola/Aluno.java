@@ -9,6 +9,12 @@ public class Aluno {
     int matriculaAluno;
     ArrayList<Turma> turmas;
 
+
+    public Aluno(String nomeAluno, int matriculaAluno) {
+        this.nomeAluno = nomeAluno;
+        this.matriculaAluno = matriculaAluno;
+    }
+
     public Aluno(String nomeAluno, int matriculaAluno, Turma turma) {
         this.nomeAluno = nomeAluno;
         this.matriculaAluno = matriculaAluno;

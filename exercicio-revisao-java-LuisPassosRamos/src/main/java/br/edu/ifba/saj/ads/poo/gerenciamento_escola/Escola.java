@@ -23,12 +23,16 @@ public class Escola {
         Turma turma3 = new Turma(3);
 
         Professor professor1 = new Professor ("Leandro", "POO");
-        Professor professor2 = new Professor ("Ester", "LAB. REDES");
+        Professor professor2 = new Professor ("Ester", "LAB. REDES", turma1);
         Professor professor3 = new Professor ("Flavio", "ANALISE E PROJETO DE SISTEMAS");
-        Professor professor4 = new Professor ("", "POO");
+        Professor professor4 = new Professor ("", "POO", turma2);
         Professor professor5 = new Professor ("Guilherme", "POO");
-    
-        Aluno aluno1 = new Aluno("Luis", 1, turma1);
+        Professor professor6 = new Professor ("Guilherme", "POO", turma3);
+        
+        professor1.addTurma(turma1);
+        professor3.addTurma(turma2);
+        professor5.addTurma(turma3);
+        Aluno aluno1 = new Aluno("Luis", 1);
 
         System.out.println(turma1.getAlunos());
         System.out.println(professor1);
