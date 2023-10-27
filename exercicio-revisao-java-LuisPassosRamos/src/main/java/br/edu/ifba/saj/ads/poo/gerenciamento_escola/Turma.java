@@ -9,6 +9,12 @@ public class Turma {
     ArrayList<Aluno> alunos;
     ArrayList<Professor> professores;
 
+    public Turma(int serie, ArrayList<Aluno> alunos, ArrayList<Professor> professores) {
+        this.serie = serie;
+        this.alunos = (alunos == null) ?  alunos : new ArrayList<>();
+        this.professores = professores;
+    }
+
     public Turma(int serie) {
         this.serie = serie;
         this.alunos = new ArrayList<>();
@@ -39,5 +45,44 @@ public class Turma {
     }
 
     public void addProfessor(Professor professor) {
+        if(!professores.contains(professor)){
+            professores.add(professor);
+        }
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + serie;
+        result = prime * result + ((alunos == null) ? 0 : alunos.hashCode());
+        result = prime * result + ((professores == null) ? 0 : professores.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Turma other = (Turma) obj;
+        if (serie != other.serie)
+            return false;
+        if (alunos == null) {
+            if (other.alunos != null)
+                return false;
+        } else if (!alunos.equals(other.alunos))
+            return false;
+        if (professores == null) {
+            if (other.professores != null)
+                return false;
+        } else if (!professores.equals(other.professores))
+            return false;
+        return true;
+    }
+
+    
 }

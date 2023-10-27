@@ -24,12 +24,12 @@ public class Aluno {
         }
     }
 
-    public String getNomeAluno() {
-        return nomeAluno;
+    public String getNomeAluno(){
+        return this.nomeAluno;
     }
 
     public int getMatriculaAluno() {
-        return matriculaAluno;
+        return this.matriculaAluno;
     }
 
     public List<Turma> getTurmas() {
@@ -40,4 +40,41 @@ public class Aluno {
     public String toString() {
         return "Aluno [nomeAluno=" + nomeAluno + ", matriculaAluno=" + matriculaAluno + "]";
     }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((nomeAluno == null) ? 0 : nomeAluno.hashCode());
+        result = prime * result + matriculaAluno;
+        result = prime * result + ((turmas == null) ? 0 : turmas.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Aluno other = (Aluno) obj;
+        if (nomeAluno == null) {
+            if (other.nomeAluno != null)
+                return false;
+        } else if (!nomeAluno.equals(other.nomeAluno))
+            return false;
+        if (matriculaAluno != other.matriculaAluno)
+            return false;
+        if (turmas == null) {
+            if (other.turmas != null)
+                return false;
+        } else if (!turmas.equals(other.turmas))
+            return false;
+        return true;
+    }
+
+    
+
 }
