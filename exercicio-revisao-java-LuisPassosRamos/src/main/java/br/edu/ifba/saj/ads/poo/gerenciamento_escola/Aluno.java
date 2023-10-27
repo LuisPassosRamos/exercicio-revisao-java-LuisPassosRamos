@@ -9,7 +9,6 @@ public class Aluno {
     int matriculaAluno;
     ArrayList<Turma> turmas;
 
-
     public Aluno(String nomeAluno, int matriculaAluno) {
         this.nomeAluno = nomeAluno;
         this.matriculaAluno = matriculaAluno;
@@ -30,7 +29,7 @@ public class Aluno {
         }
     }
 
-    public String getNomeAluno(){
+    public String getNomeAluno() {
         return this.nomeAluno;
     }
 
@@ -80,7 +79,5 @@ public class Aluno {
             return false;
         return true;
     }
-
-    
 
 }

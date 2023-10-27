@@ -22,27 +22,34 @@ public class Escola {
         Turma turma2 = new Turma(2);
         Turma turma3 = new Turma(3);
 
-        Professor professor1 = new Professor ("Leandro", "POO");
-        Professor professor2 = new Professor ("Ester", "LAB. REDES", turma1);
-        Professor professor3 = new Professor ("Flavio", "ANALISE E PROJETO DE SISTEMAS");
-        Professor professor4 = new Professor ("", "POO", turma2);
-        Professor professor5 = new Professor ("Guilherme", "POO");
-        Professor professor6 = new Professor ("Guilherme", "POO", turma3);
-        
+        Professor professor1 = new Professor("Leandro", "POO");
+        Professor professor2 = new Professor("Ester", "LAB. REDES", turma1);
+        Professor professor3 = new Professor("Flavio", "ANALISE E PROJETO DE SISTEMAS");
+        Professor professor4 = new Professor("", "POO", turma2);
+        Professor professor5 = new Professor("Guilherme", "POO");
+        Professor professor6 = new Professor("Guilherme", "POO", turma3);
+
         professor1.addTurma(turma1);
         professor3.addTurma(turma2);
         professor5.addTurma(turma3);
 
         for (int i = 0; i < 3; i++) {
-            turma1.addAluno(new Aluno("Aluno "+(i+1), (i+1)));
-            turma2.addAluno(new Aluno("Aluno "+(i+1), (i+1)));
-            turma3.addAluno(new Aluno("Aluno "+(i+1), (i+1)));
+            turma1.addAluno(new Aluno("Aluno " + (i + 1), (i + 1)));
+            turma2.addAluno(new Aluno("Aluno " + (i + 1), (i + 1)));
+            turma3.addAluno(new Aluno("Aluno " + (i + 1), (i + 1)));
         }
-        Aluno aluno1 = new Aluno("Luis", 1);
 
+        for (int i = 0; i < 3; i++) {
+            turma1.addProfessor(new Professor("Professor " + (i + 1), "Materia " + (i + 1)));
+            turma2.addProfessor(new Professor("Professor " + (i + 1), "Materia " + (i + 1)));
+            turma3.addProfessor(new Professor("Professor " + (i + 1), "Materia " + (i + 1)));
+        }
+
+        Aluno aluno1 = new Aluno("Luis", 15);
+        Aluno aluno2 = new Aluno("Guilherme", 13);
+        Aluno aluno3 = new Aluno("Anderson", 11);
         System.out.println(turma1.getAlunos());
         System.out.println(professor1);
 
-        
     }
 }

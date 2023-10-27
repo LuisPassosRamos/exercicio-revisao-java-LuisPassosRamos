@@ -9,8 +9,6 @@ public class Professor {
     String materiaProfessor;
     ArrayList<Turma> turmas;
 
-    
-
     public Professor(String nomeProfessor, String materiaProfessor) {
         this.nomeProfessor = nomeProfessor;
         this.materiaProfessor = materiaProfessor;
@@ -43,7 +41,8 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor [nomeProfessor=" + nomeProfessor + ", materiaProfessor=" + materiaProfessor + ", turmas="+ turmas + "]";
+        return "Professor [nomeProfessor=" + nomeProfessor + ", materiaProfessor=" + materiaProfessor + ", turmas="
+                + turmas + "]";
     }
 
     @Override
@@ -83,5 +82,4 @@ public class Professor {
         return true;
     }
 
-    
 }

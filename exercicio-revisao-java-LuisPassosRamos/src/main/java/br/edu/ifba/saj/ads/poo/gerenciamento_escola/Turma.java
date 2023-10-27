@@ -11,7 +11,7 @@ public class Turma {
 
     public Turma(int serie, ArrayList<Aluno> alunos, ArrayList<Professor> professores) {
         this.serie = serie;
-        this.alunos = (alunos == null) ?  alunos : new ArrayList<>();
+        this.alunos = (alunos == null) ? alunos : new ArrayList<>();
         this.professores = professores;
     }
 
@@ -45,7 +45,7 @@ public class Turma {
     }
 
     public void addProfessor(Professor professor) {
-        if(!professores.contains(professor)){
+        if (!professores.contains(professor)) {
             professores.add(professor);
         }
     }
@@ -84,5 +84,4 @@ public class Turma {
         return true;
     }
 
-    
 }
