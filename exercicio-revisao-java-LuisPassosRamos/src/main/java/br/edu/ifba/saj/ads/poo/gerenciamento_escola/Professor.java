@@ -43,8 +43,7 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "\nProfessor [Nome do professor=" + nomeProfessor + ", Materia do professor=" + materiaProfessor + ", \nTurmas="
-                + turmas + "]";
+        return "\nProfessor [Nome do professor=" + nomeProfessor + ", Materia do professor=" + materiaProfessor + "]";
     }
 
     @Override

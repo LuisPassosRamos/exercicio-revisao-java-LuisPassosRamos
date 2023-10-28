@@ -53,17 +53,20 @@ public class Escola {
         turma2.addAluno(aluno2);
         turma3.addAluno(aluno3);
 
-        System.out.println(professor1);
-        System.out.println(professor2);
-        System.out.println(professor3);
-        System.out.println(professor4);
-        System.out.println(professor5);
-        System.out.println(professor6);
+        // System.out.println(professor1);
+        // System.out.println(professor2);
+        // System.out.println(professor3);
+        // System.out.println(professor4);
+        // System.out.println(professor5);
+        // System.out.println(professor6);
 
+        System.out.println(turma1.getAlunos());
+        System.out.println(turma2.getAlunos());
+        System.out.println(turma3.getAlunos());
 
-
-
-
+        System.out.println(turma1.getProfessores());
+        System.out.println(turma2.getProfessores());
+        System.out.println(turma3.getProfessores());
 
     }
 }
