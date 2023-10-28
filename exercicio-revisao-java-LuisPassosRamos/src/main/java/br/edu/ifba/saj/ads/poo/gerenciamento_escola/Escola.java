@@ -25,9 +25,9 @@ public class Escola {
         Professor professor1 = new Professor("Leandro", "POO");
         Professor professor2 = new Professor("Ester", "LAB. REDES", turma1);
         Professor professor3 = new Professor("Flavio", "ANALISE E PROJETO DE SISTEMAS");
-        Professor professor4 = new Professor("", "POO", turma2);
-        Professor professor5 = new Professor("Guilherme", "POO");
-        Professor professor6 = new Professor("Guilherme", "POO", turma3);
+        Professor professor4 = new Professor("Yuri", "ESTRUTURA DE DADOS", turma2);
+        Professor professor5 = new Professor("Bruno", "INGLES");
+        Professor professor6 = new Professor("Teste", "TESTE", turma3);
 
         professor1.addTurma(turma1);
         professor3.addTurma(turma2);
@@ -48,8 +48,22 @@ public class Escola {
         Aluno aluno1 = new Aluno("Luis", 15);
         Aluno aluno2 = new Aluno("Guilherme", 13);
         Aluno aluno3 = new Aluno("Anderson", 11);
-        System.out.println(turma1.getAlunos());
+
+        turma1.addAluno(aluno1);
+        turma2.addAluno(aluno2);
+        turma3.addAluno(aluno3);
+
         System.out.println(professor1);
+        System.out.println(professor2);
+        System.out.println(professor3);
+        System.out.println(professor4);
+        System.out.println(professor5);
+        System.out.println(professor6);
+
+
+
+
+
 
     }
 }

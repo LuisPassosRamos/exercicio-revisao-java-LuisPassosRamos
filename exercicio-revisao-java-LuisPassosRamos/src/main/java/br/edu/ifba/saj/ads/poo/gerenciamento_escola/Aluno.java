@@ -43,7 +43,7 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno [nomeAluno=" + nomeAluno + ", matriculaAluno=" + matriculaAluno + "]";
+        return "\nAluno [Nome do aluno=" + nomeAluno + ", Matricula do aluno=" + matriculaAluno + "]";
     }
 
     @Override
