@@ -25,8 +25,8 @@ public class Escola {
         Professor professor1 = new Professor("Leandro", "POO");
         Professor professor2 = new Professor("Ester", "LAB. REDES", turma1);
         Professor professor3 = new Professor("Flavio", "ANALISE E PROJETO DE SISTEMAS");
-        Professor professor4 = new Professor("", "POO", turma2);
-        Professor professor5 = new Professor("Guilherme", "POO");
+        Professor professor4 = new Professor("Alisson", "INGLES", turma2);
+        Professor professor5 = new Professor("", "ESTRUTURA DE DADOS");
         Professor professor6 = new Professor("Guilherme", "POO", turma3);
 
         professor1.addTurma(turma1);
