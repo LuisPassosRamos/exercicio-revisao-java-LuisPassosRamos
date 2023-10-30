@@ -12,11 +12,13 @@ public class Professor {
     public Professor(String nomeProfessor, String materiaProfessor) {
         this.nomeProfessor = nomeProfessor;
         this.materiaProfessor = materiaProfessor;
+        this.turmas = new ArrayList<>();
     }
 
     public Professor(String nomeProfessor, String materiaProfessor, Turma turma) {
         this.nomeProfessor = nomeProfessor;
         this.materiaProfessor = materiaProfessor;
+        this.turmas = new ArrayList<>();
         this.turmas.add(turma);
         turma.addProfessor(this);
     }
@@ -41,8 +43,7 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor [nomeProfessor=" + nomeProfessor + ", materiaProfessor=" + materiaProfessor + ", turmas="
-                + turmas + "]";
+        return "\nProfessor [Nome do professor=" + nomeProfessor + ", Materia do professor=" + materiaProfessor + "]";
     }
 
     @Override

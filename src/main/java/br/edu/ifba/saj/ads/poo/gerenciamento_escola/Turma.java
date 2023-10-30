@@ -41,7 +41,7 @@ public class Turma {
 
     @Override
     public String toString() {
-        return "Turma [serie=" + serie + ", alunos=" + alunos + "]";
+        return "Turma [Serie=" + serie + ", Alunos= " + alunos + "]";
     }
 
     public void addProfessor(Professor professor) {
