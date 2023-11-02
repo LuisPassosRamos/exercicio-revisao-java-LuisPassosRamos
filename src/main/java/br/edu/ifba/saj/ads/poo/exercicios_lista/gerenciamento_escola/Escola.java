@@ -13,8 +13,7 @@ Cada escola contém várias turmas, cada turma tem vários alunos e professores.
 Os alunos podem pertencer a mais de uma turma. Os professores ministram aulas em uma ou mais turmas. 
 Os dados devem ser organizados para permitir consultas sobre quais turmas um professor leciona e quais alunos estão matriculados em uma turma específica.*/
 
-package br.edu.ifba.saj.ads.poo.gerenciamento_escola;
-
+package br.edu.ifba.saj.ads.poo.exercicios_lista.gerenciamento_escola;
 public class Escola {
     public static void main(String[] args) {
 

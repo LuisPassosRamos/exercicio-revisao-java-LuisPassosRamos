@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo.gerenciamento_escola;
+package br.edu.ifba.saj.ads.poo.exercicios_lista.gerenciamento_escola;
 
 import java.util.ArrayList;
 import java.util.Collections;
