@@ -1,0 +1,5 @@
+# Exercício: Biblioteca Digital
+
+1. Utilizando os conhecimentos de O.O. construa um programa utilizando as informações abaixo.
+
+Crie um sistema de biblioteca digital com livros, autores e categorias. Os livros pertencem a autores, e cada livro pode ser classificado em uma ou mais categorias. Os usuários podem fazer pesquisas por autor ou categoria e visualizar os livros disponíveis.
