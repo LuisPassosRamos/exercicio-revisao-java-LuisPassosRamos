@@ -1,12 +1,12 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
-public class roupas {
+public class roupa {
     private float preco;
 
     private char tamanho;
     private String cor;
 
-    roupas(float preco, char tamanho, String cor){
+    roupa(float preco, char tamanho, String cor){
         this.preco = preco;
         this.tamanho = tamanho;
         this.cor = cor;
