@@ -15,5 +15,16 @@ public class departamento {
     public String getNomeDep() {
         return nomeDep;
     }
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof departamento that)) return false;
+        return Objects.equals(nomeDep, that.nomeDep) && Objects.equals(roupas, that.roupas);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeDep, roupas);
+    }
 }

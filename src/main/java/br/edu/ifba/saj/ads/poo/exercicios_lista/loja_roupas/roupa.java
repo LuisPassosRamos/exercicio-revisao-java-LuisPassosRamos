@@ -1,5 +1,7 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
+import java.util.Objects;
+
 public class roupa {
     private float preco;
 
@@ -34,5 +36,17 @@ public class roupa {
 
     public void setTamanho(char tamanho) {
         this.tamanho = tamanho;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof roupa roupa)) return false;
+        return Float.compare(preco, roupa.preco) == 0 && tamanho == roupa.tamanho && Objects.equals(cor, roupa.cor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(preco, tamanho, cor);
     }
 }
