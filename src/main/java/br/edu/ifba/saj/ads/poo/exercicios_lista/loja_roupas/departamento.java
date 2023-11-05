@@ -17,6 +17,14 @@ public class departamento {
     }
 
     @Override
+    public String toString() {
+        return "departamento{" +
+                "nomeDep='" + nomeDep + '\'' +
+                ", roupas=" + roupas +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof departamento that)) return false;

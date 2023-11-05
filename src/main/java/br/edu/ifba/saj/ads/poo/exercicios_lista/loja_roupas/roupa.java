@@ -3,15 +3,31 @@ package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 import java.util.Objects;
 
 public class roupa {
+    private String nomeRoupa;
     private float preco;
 
     private char tamanho;
     private String cor;
 
-    roupa(float preco, char tamanho, String cor){
+    public roupa(String nomeRoupa, char tamanho, String cor) {
+        this.nomeRoupa = nomeRoupa;
+        this.tamanho = tamanho;
+        this.cor = cor;
+    }
+
+    roupa(float preco, char tamanho, String cor, String nomeRoupa){
+        this.nomeRoupa = nomeRoupa;
         this.preco = preco;
         this.tamanho = tamanho;
         this.cor = cor;
+    }
+
+    public String getNomeRoupa() {
+        return nomeRoupa;
+    }
+
+    public void setNomeRoupa(String nomeRoupa) {
+        this.nomeRoupa = nomeRoupa;
     }
 
     public float getPreco() {
@@ -36,6 +52,16 @@ public class roupa {
 
     public void setTamanho(char tamanho) {
         this.tamanho = tamanho;
+    }
+
+    @Override
+    public String toString() {
+        return "roupa{" +
+                "nomeRoupa='" + nomeRoupa + '\'' +
+                ", preco=" + preco +
+                ", tamanho=" + tamanho +
+                ", cor='" + cor + '\'' +
+                '}';
     }
 
     @Override
