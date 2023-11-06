@@ -1,5 +1,6 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class roupa {
@@ -8,6 +9,7 @@ public class roupa {
 
     private String tamanho;
     private String cor;
+    private ArrayList<departamento> departamentos;
 
     public roupa(String nomeRoupa, String tamanho, String cor) {
         this.nomeRoupa = nomeRoupa.toUpperCase().trim();
