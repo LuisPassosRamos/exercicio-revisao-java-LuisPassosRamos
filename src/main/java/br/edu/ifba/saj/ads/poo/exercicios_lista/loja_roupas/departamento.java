@@ -7,7 +7,6 @@ public class departamento {
     String nomeDep;
     ArrayList<roupa> roupas;
 
-
     public departamento(String nomeDep, ArrayList<roupa> roupas) {
         this.nomeDep = nomeDep.toUpperCase().trim();
         this.roupas = roupas;
@@ -16,6 +15,10 @@ public class departamento {
     public departamento(String nomeDep) {
         this.nomeDep = nomeDep.toUpperCase().trim();
         this.roupas = new ArrayList<>();
+    }
+
+    public int getRoupasLenght(){
+        return this.roupas.size();
     }
 
     public String getNomeDep() {
