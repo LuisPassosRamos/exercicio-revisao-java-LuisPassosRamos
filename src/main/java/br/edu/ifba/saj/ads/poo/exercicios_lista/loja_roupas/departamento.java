@@ -7,6 +7,11 @@ public class departamento {
     String nomeDep;
     ArrayList<roupa> roupas;
 
+    public departamento(String nomeDep, ArrayList<roupa> roupas) {
+        this.nomeDep = nomeDep;
+        this.roupas = roupas;
+    }
+
     public departamento(String nomeDep) {
         this.nomeDep = nomeDep;
         this.roupas = new ArrayList<>();
@@ -14,6 +19,12 @@ public class departamento {
 
     public String getNomeDep() {
         return nomeDep;
+    }
+
+    public void addRoupa(roupa roupa){
+        if (!this.roupas.contains(roupa)) {
+            roupas.add(roupa);
+        }
     }
 
     @Override
