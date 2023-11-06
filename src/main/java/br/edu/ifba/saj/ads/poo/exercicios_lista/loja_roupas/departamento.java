@@ -7,6 +7,7 @@ public class departamento {
     String nomeDep;
     ArrayList<roupa> roupas;
 
+
     public departamento(String nomeDep, ArrayList<roupa> roupas) {
         this.nomeDep = nomeDep;
         this.roupas = roupas;
@@ -23,7 +24,9 @@ public class departamento {
 
     public void addRoupa(roupa roupa){
         if (!this.roupas.contains(roupa)) {
-            roupas.add(roupa);
+           if(Objects.equals(roupa.getNomeRoupa(), this.getNomeDep())) {
+               roupas.add(roupa);
+           }
         }
     }
 
