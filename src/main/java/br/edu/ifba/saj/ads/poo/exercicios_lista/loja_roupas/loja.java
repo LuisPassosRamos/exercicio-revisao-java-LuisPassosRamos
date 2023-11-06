@@ -26,13 +26,9 @@ public class loja {
             departamentoInf.addRoupa(new roupa("masculino", "Amarelo", "PP", (i * 2)));
         }
 
-        System.out.println(departamentoMasc);
-        System.out.println(departamentoFem);
-        System.out.println(departamentoInf);
-
-        System.out.println(departamentoMasc.getRoupasSize());
-        System.out.println(departamentoFem.getRoupasSize());
-        System.out.println(departamentoInf.getRoupasSize());
+        for (roupa roupa : departamentoMasc.roupas()){
+            System.out.println(roupa);
+        }
 
     }
 }

@@ -17,7 +17,9 @@ public class departamento {
         this.roupas = new ArrayList<>();
     }
 
-
+    public List<roupa> getRoupas(){
+        return List.copyOf(this.roupas);
+    }
 
     public int getRoupasSize(){
         return this.roupas.size();
