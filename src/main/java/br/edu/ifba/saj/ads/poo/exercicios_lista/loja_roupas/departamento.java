@@ -9,12 +9,12 @@ public class departamento {
 
 
     public departamento(String nomeDep, ArrayList<roupa> roupas) {
-        this.nomeDep = nomeDep;
+        this.nomeDep = nomeDep.toUpperCase().trim();
         this.roupas = roupas;
     }
 
     public departamento(String nomeDep) {
-        this.nomeDep = nomeDep;
+        this.nomeDep = nomeDep.toUpperCase().trim();
         this.roupas = new ArrayList<>();
     }
 

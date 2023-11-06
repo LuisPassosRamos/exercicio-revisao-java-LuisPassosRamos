@@ -6,17 +6,17 @@ public class roupa {
     private String nomeRoupa;
     private float preco;
 
-    private char tamanho;
+    private String tamanho;
     private String cor;
 
-    public roupa(String nomeRoupa, char tamanho, String cor) {
-        this.nomeRoupa = nomeRoupa;
+    public roupa(String nomeRoupa, String tamanho, String cor) {
+        this.nomeRoupa = nomeRoupa.toUpperCase().trim();
         this.tamanho = tamanho;
         this.cor = cor;
     }
 
-    roupa(float preco, char tamanho, String cor, String nomeRoupa){
-        this.nomeRoupa = nomeRoupa;
+    public roupa(String nomeRoupa, String cor, String tamanho, float preco){
+        this.nomeRoupa = nomeRoupa.toUpperCase().trim();
         this.preco = preco;
         this.tamanho = tamanho;
         this.cor = cor;
@@ -25,7 +25,6 @@ public class roupa {
     public String getNomeRoupa() {
         return nomeRoupa;
     }
-
     public void setNomeRoupa(String nomeRoupa) {
         this.nomeRoupa = nomeRoupa;
     }
@@ -38,8 +37,12 @@ public class roupa {
         return cor;
     }
 
-    public char getTamanho() {
+    public String getTamanho() {
         return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
     }
 
     public void setCor(String cor) {
@@ -50,9 +53,6 @@ public class roupa {
         this.preco = preco;
     }
 
-    public void setTamanho(char tamanho) {
-        this.tamanho = tamanho;
-    }
 
     @Override
     public String toString() {
