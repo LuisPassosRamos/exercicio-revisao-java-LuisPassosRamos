@@ -30,9 +30,9 @@ public class loja {
         System.out.println(departamentoFem);
         System.out.println(departamentoInf);
 
-        System.out.println(departamentoMasc.getRoupasLenght());
-        System.out.println(departamentoFem.getRoupasLenght());
-        System.out.println(departamentoInf.getRoupasLenght());
+        System.out.println(departamentoMasc.getRoupasSize());
+        System.out.println(departamentoFem.getRoupasSize());
+        System.out.println(departamentoInf.getRoupasSize());
 
     }
 }

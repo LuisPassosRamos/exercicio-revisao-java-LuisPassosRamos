@@ -17,7 +17,9 @@ public class departamento {
         this.roupas = new ArrayList<>();
     }
 
-    public int getRoupasLenght(){
+
+
+    public int getRoupasSize(){
         return this.roupas.size();
     }
 

@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class carrinho {
@@ -8,6 +9,18 @@ public class carrinho {
 
     carrinho(){
         this.roupas = new ArrayList<>();
+    }
+
+    public carrinho(ArrayList<roupa> roupas) {
+        this.roupas = roupas;
+    }
+
+    public List<roupa> getRoupas() {
+        return List.copyOf(this.roupas);
+    }
+
+    public void setRoupas(ArrayList<roupa> roupas) {
+        this.roupas = roupas;
     }
 
     @Override
