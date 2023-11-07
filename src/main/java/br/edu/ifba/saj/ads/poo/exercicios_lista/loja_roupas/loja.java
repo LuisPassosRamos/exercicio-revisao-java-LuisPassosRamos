@@ -27,7 +27,7 @@ public class loja {
         }
 
 
-        for (roupa roupa : departamentoMasc.roupas()){
+        for (roupa roupa : departamentoMasc.getRoupas()){
             System.out.println(roupa);
         }
 
