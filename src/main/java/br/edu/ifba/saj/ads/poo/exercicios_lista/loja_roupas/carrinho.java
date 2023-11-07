@@ -7,7 +7,7 @@ import java.util.Objects;
 public class carrinho {
     ArrayList<roupa> roupas;
 
-    carrinho(){
+    public carrinho(){
         this.roupas = new ArrayList<>();
     }
 
@@ -21,6 +21,16 @@ public class carrinho {
 
     public void setRoupas(ArrayList<roupa> roupas) {
         this.roupas = roupas;
+    }
+
+    public void limparRoupas(){
+        this.roupas.clear();        
+    }
+
+    public void addRoupa(roupa roupa){
+        if (!this.roupas.contains(roupa)){
+            this.roupa.add(roupa);
+        }
     }
 
     @Override

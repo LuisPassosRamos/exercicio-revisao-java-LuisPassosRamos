@@ -27,6 +27,14 @@ public class loja {
         }
 
 
+        for (roupa roupa : departamentoMasc.roupas()){
+            System.out.println(roupa);
+        }
 
+        ArrayList<roupa> roupas = new ArrayList<>(departamentoMasc.getRoupas());
+
+        carrinho carrinho1 = new carrinho(roupas);
+
+        
     }
 }
