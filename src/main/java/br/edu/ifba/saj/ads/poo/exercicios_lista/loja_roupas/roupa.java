@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class roupa {
     private String nomeRoupa;
+    private String tipoRoupa;
     private float preco;
 
     private String tamanho;
@@ -17,11 +18,20 @@ public class roupa {
         this.cor = cor;
     }
 
-    public roupa(String nomeRoupa, String cor, String tamanho, float preco){
+    public roupa(String nomeRoupa, String tipoRoupa, String cor, String tamanho, float preco){
         this.nomeRoupa = nomeRoupa.toUpperCase().trim();
+        this.tipoRoupa = tipoRoupa.toUpperCase().trim();
         this.preco = preco;
         this.tamanho = tamanho;
         this.cor = cor;
+    }
+
+    public String getTipoRoupa() {
+        return this.tipoRoupa;
+    }
+
+    public void setTipoRoupa(String tipoRoupa) {
+        this.tipoRoupa = tipoRoupa.toUpperCase().trim();
     }
 
     public String getNomeRoupa() {

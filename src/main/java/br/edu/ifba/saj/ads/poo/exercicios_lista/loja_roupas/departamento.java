@@ -29,7 +29,7 @@ public class departamento {
 
     public void addRoupa(roupa roupa){
         if (!this.roupas.contains(roupa)) {
-           if(Objects.equals(roupa.getNomeRoupa(), this.getNomeDep())) {
+           if(Objects.equals(roupa.getTipoRoupa(), this.getNomeDep())) {
                roupas.add(roupa);
            }
         }

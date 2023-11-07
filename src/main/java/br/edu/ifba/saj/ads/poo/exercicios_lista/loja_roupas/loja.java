@@ -7,32 +7,26 @@ public class loja {
         departamento departamentoInf = new departamento("Infantil");
 
         for (int i = 1; i < 6; i++) {
-            departamentoMasc.addRoupa(new roupa("masculino", "Branco", "M", (i * 2)));
+            departamentoMasc.addRoupa(new roupa("Camisa","masculino", "Branco", "M", (i * 2)));
         }
         for (int i = 1; i < 6; i++){
-            departamentoFem.addRoupa(new roupa("feminino", "Preto", "P", (i * 2)));
+            departamentoFem.addRoupa(new roupa("Camisa","feminino", "Preto", "P", (i * 2)));
         }
         for (int i = 1; i < 6; i++) {
-            departamentoInf.addRoupa(new roupa("infantil", "Amarelo", "PP", (i * 2)));
+            departamentoInf.addRoupa(new roupa("Camisa","infantil", "Amarelo", "PP", (i * 2)));
         }
 
         for (int i = 1; i < 6; i++) {
-            departamentoMasc.addRoupa(new roupa("feminino", "Branco", "M", (i * 2)));
+            departamentoMasc.addRoupa(new roupa("Camisa","feminino", "Branco", "M", (i * 2)));
         }
         for (int i = 1; i < 6; i++){
-            departamentoFem.addRoupa(new roupa("infantil", "Preto", "P", (i * 2)));
+            departamentoFem.addRoupa(new roupa("Camisa","infantil", "Preto", "P", (i * 2)));
         }
         for (int i = 1; i < 6; i++) {
-            departamentoInf.addRoupa(new roupa("masculino", "Amarelo", "PP", (i * 2)));
+            departamentoInf.addRoupa(new roupa("Camisa","masculino", "Amarelo", "PP", (i * 2)));
         }
 
-        System.out.println(departamentoMasc);
-        System.out.println(departamentoFem);
-        System.out.println(departamentoInf);
 
-        System.out.println(departamentoMasc.getRoupasSize());
-        System.out.println(departamentoFem.getRoupasSize());
-        System.out.println(departamentoInf.getRoupasSize());
 
     }
 }
