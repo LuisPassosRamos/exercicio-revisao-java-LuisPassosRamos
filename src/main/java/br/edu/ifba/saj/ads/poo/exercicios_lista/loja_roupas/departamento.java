@@ -2,7 +2,7 @@ package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
 import java.util.ArrayList;
 import java.util.Objects;
-
+import java.util.List;
 public class departamento {
     String nomeDep;
     ArrayList<roupa> roupas;

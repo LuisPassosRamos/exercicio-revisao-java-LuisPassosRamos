@@ -31,9 +31,12 @@ public class loja {
             System.out.println(roupa);
         }
 
-        ArrayList<roupa> roupas = new ArrayList<>(departamentoMasc.getRoupas());
+        carrinho carrinho1 = new carrinho();
 
-        carrinho carrinho1 = new carrinho(roupas);
+        for (int i = 1; i < 6; i++) {
+            carrinho.addRoupa(new roupa("Camisa","feminino", "Branco", "M", (i * 2)));
+        }
+
 
         
     }

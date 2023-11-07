@@ -29,7 +29,7 @@ public class carrinho {
 
     public void addRoupa(roupa roupa){
         if (!this.roupas.contains(roupa)){
-            this.roupa.add(roupa);
+            this.roupas.add(roupa);
         }
     }
 
