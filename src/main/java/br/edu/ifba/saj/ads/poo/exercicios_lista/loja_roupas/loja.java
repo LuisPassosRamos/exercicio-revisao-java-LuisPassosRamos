@@ -34,10 +34,10 @@ public class loja {
         carrinho carrinho1 = new carrinho();
 
         for (int i = 1; i < 6; i++) {
-            carrinho.addRoupa(new roupa("Camisa","feminino", "Branco", "M", (i * 2)));
+            carrinho1.addRoupa(new roupa("Camisa","feminino", "Branco", "M", (i * 2)));
         }
 
-
+        System.out.println(carrinho1);
         
     }
 }

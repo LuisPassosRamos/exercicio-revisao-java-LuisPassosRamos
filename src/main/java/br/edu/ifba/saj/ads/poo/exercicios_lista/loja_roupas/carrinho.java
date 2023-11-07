@@ -34,6 +34,13 @@ public class carrinho {
     }
 
     @Override
+    public String toString() {
+        return "carrinho{" +
+                "roupas=" + roupas +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof carrinho carrinho)) return false;
