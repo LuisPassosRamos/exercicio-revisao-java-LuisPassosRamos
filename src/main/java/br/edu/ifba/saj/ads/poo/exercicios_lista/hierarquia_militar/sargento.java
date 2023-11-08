@@ -81,11 +81,11 @@ public class sargento {
     @Override
     public String toString() {
         return "sargento{" +
-                "nomeSargento='" + nomeSargento + '\'' +
-                ", identificacaoSargento=" + identificacaoSargento +
-                ", tempoServico=" + tempoServico +
-                ", imediatoSargento=" + imediatoSargento +
-                ", subordinadosSargento=" + subordinadosSargento +
+                "nomeSargento='" + this.nomeSargento + '\'' +
+                ", identificacaoSargento=" + this.identificacaoSargento +
+                ", tempoServico=" + this.tempoServico +
+                ", imediatoSargento=" + this.imediatoSargento.getNomeTenente() +
+                ", subordinadosSargento=" + this.subordinadosSargento +
                 '}';
     }
 

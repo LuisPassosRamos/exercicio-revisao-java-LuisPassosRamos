@@ -77,11 +77,11 @@ public class cabo {
     @Override
     public String toString() {
         return "cabo{" +
-                "nomeCabo='" + nomeCabo + '\'' +
-                ", identificacaoCabo=" + identificacaoCabo +
-                ", tempoServico=" + tempoServico +
-                ", subordinadosCabo=" + subordinadosCabo +
-                ", imediatoCabo=" + imediatoCabo +
+                "nomeCabo='" + this.nomeCabo + '\'' +
+                ", identificacaoCabo=" + this.identificacaoCabo +
+                ", tempoServico=" + this.tempoServico +
+                ", subordinadosCabo=" + this.subordinadosCabo +
+                ", imediatoCabo=" + this.imediatoCabo.getNomeSargento() +
                 '}';
     }
 

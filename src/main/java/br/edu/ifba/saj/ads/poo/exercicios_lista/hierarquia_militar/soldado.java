@@ -54,10 +54,10 @@ public class soldado {
     @Override
     public String toString() {
         return "soldado{" +
-                "nomeSoldado='" + nomeSoldado + '\'' +
-                ", identificacaoSoldado=" + identificacaoSoldado +
-                ", tempoServico=" + tempoServico +
-                ", imediatoSoldado=" + imediatoSoldado +
+                "nomeSoldado='" + this.nomeSoldado + '\'' +
+                ", identificacaoSoldado=" + this.identificacaoSoldado +
+                ", tempoServico=" + this.tempoServico +
+                ", imediatoSoldado=" + this.imediatoSoldado.getNomeCabo() +
                 '}';
     }
 

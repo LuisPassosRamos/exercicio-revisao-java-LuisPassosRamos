@@ -36,7 +36,7 @@ public class tenente {
 
     public void setImediatoTenente(capitao capitao){
         this.imediatoTenente = capitao;
-        capitao.addSubordinados(this);
+        capitao.addSubordinado(this);
     }
 
     public void addSubordinado(sargento sargento) {
@@ -81,11 +81,11 @@ public class tenente {
     @Override
     public String toString() {
         return "tenente{" +
-                "nomeTenente='" + nomeTenente + '\'' +
-                ", identificacaoTenente=" + identificacaoTenente +
-                ", tempoServico=" + tempoServico +
-                ", subordinadosTenente=" + subordinadosTenente +
-                ", imediatoTenente=" + imediatoTenente +
+                "nomeTenente='" + this.nomeTenente + '\'' +
+                ", identificacaoTenente=" + this.identificacaoTenente +
+                ", tempoServico=" + this.tempoServico +
+                ", subordinadosTenente=" + this.subordinadosTenente +
+                ", imediatoTenente=" + this.imediatoTenente.getNomeCapitao() +
                 '}';
     }
 

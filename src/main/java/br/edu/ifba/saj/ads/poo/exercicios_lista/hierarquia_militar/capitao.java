@@ -5,28 +5,29 @@ import java.util.List;
 import java.util.Objects;
 
 public class capitao {
-    private String nomeSoldado;
-    private int identificacaoSoldado;
+    private String nomeCapitao;
+    private int identificacaoCapitao;
     private int tempoServico;
     private ArrayList<tenente> subordinadosCapitao;
 
-    public capitao(String nomeSoldado, int identificacaoSoldado, ArrayList<tenente> subordinadosCapitao) {
-        this.nomeSoldado = nomeSoldado;
-        this.identificacaoSoldado = identificacaoSoldado;
+    public capitao(String nomeCapitao, int identificacaoCapitao, ArrayList<tenente> subordinadosCapitao) {
+        this.nomeCapitao = nomeCapitao;
+        this.identificacaoCapitao = identificacaoCapitao;
         this.tempoServico = 0;
         this.subordinadosCapitao = subordinadosCapitao;
     }
 
-    public capitao(String nomeSoldado, int identificacaoSoldado) {
-        this.nomeSoldado = nomeSoldado;
-        this.identificacaoSoldado = identificacaoSoldado;
+    public capitao(String nomeCapitao, int identificacaoCapitao) {
+        this.nomeCapitao = nomeCapitao;
+        this.identificacaoCapitao = identificacaoCapitao;
         this.tempoServico = 0;
         this.subordinadosCapitao = new ArrayList<>();
     }
 
-    public void addSubordinados(tenente tenente) {
+    public void addSubordinado(tenente tenente) {
         if (!this.subordinadosCapitao.contains(tenente)){
             this.subordinadosCapitao.add(tenente);
+            tenente.setImediatoTenente(this);
         }
     }
 
@@ -42,27 +43,27 @@ public class capitao {
         this.tempoServico++;
     }
 
-    public String getNomeSoldado() {
-        return nomeSoldado;
+    public String getNomeCapitao() {
+        return nomeCapitao;
     }
 
-    public void setNomeSoldado(String nomeSoldado) {
-        this.nomeSoldado = nomeSoldado;
+    public void setNomeCapitao(String nomeCapitao) {
+        this.nomeCapitao = nomeCapitao;
     }
 
-    public int getIdentificacaoSoldado() {
-        return identificacaoSoldado;
+    public int getIdentificacaoCapitao() {
+        return identificacaoCapitao;
     }
 
-    public void setIdentificacaoSoldado(int identificacaoSoldado) {
-        this.identificacaoSoldado = identificacaoSoldado;
+    public void setIdentificacaoCapitao(int identificacaoCapitao) {
+        this.identificacaoCapitao = identificacaoCapitao;
     }
 
     @Override
     public String toString() {
         return "capitao{" +
-                "nomeSoldado='" + nomeSoldado + '\'' +
-                ", identificacaoSoldado=" + identificacaoSoldado +
+                "nomeCapitao='" + nomeCapitao + '\'' +
+                ", identificacaoCapitao=" + identificacaoCapitao +
                 ", tempoServico=" + tempoServico +
                 ", subordinadosCapitao=" + subordinadosCapitao +
                 '}';
@@ -72,11 +73,11 @@ public class capitao {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof capitao capitao)) return false;
-        return identificacaoSoldado == capitao.identificacaoSoldado && tempoServico == capitao.tempoServico && Objects.equals(nomeSoldado, capitao.nomeSoldado) && Objects.equals(subordinadosCapitao, capitao.subordinadosCapitao);
+        return identificacaoCapitao == capitao.identificacaoCapitao && tempoServico == capitao.tempoServico && Objects.equals(nomeCapitao, capitao.nomeCapitao) && Objects.equals(subordinadosCapitao, capitao.subordinadosCapitao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomeSoldado, identificacaoSoldado, tempoServico, subordinadosCapitao);
+        return Objects.hash(nomeCapitao, identificacaoCapitao, tempoServico, subordinadosCapitao);
     }
 }
