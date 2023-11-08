@@ -96,4 +96,6 @@ public class cabo {
     public int hashCode() {
         return Objects.hash(nomeCabo, identificacaoCabo, tempoServico, subordinadosCabo, imediatoCabo);
     }
+
+
 }

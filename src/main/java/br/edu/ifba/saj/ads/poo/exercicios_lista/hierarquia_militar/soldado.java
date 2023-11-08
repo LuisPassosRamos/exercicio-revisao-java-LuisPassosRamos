@@ -23,8 +23,10 @@ public class soldado {
     }
 
     public void setImediatoSoldado(cabo imediatoSoldado) {
-        this.imediatoSoldado = imediatoSoldado;
-        imediatoSoldado.addSubordinado(this);
+        if (!Objects.equals(this.imediatoSoldado, imediatoSoldado)) {
+            this.imediatoSoldado = imediatoSoldado;
+            imediatoSoldado.addSubordinado(this);
+        }
     }
 
     public int getTempoServico() {
