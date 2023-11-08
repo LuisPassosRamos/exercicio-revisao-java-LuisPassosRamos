@@ -1,6 +1,8 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.hierarquia_militar;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class tenente {
     private String nomeTenente;
@@ -32,6 +34,26 @@ public class tenente {
         this.subordinadosTenente = new ArrayList<>();
     }
 
+    public void setImediatoTenente(capitao capitao){
+        this.imediatoTenente = capitao;
+        capitao.addSubordinados(this);
+    }
+
+    public void addSubordinado(sargento sargento) {
+        if(!subordinadosTenente.contains(sargento)){
+            this.subordinadosTenente.add(sargento);
+            sargento.setImediatoSargento(this);
+        }
+    }
+
+    public List<sargento> getSubordinadosTenente() {
+        return List.copyOf(this.subordinadosTenente);
+    }
+
+    public capitao getImediatoTenente() {
+        return this.imediatoTenente;
+    }
+
     public int getTempoServico() {
         return this.tempoServico;
     }
@@ -56,10 +78,26 @@ public class tenente {
         this.identificacaoTenente = identificacaoTenente;
     }
 
-    public void addSubordinado(sargento sargento) {
-        if(!subordinadosTenente.contains(sargento)){
-            this.subordinadosTenente.add(sargento);
-            sargento.setImediatoSargento(this);
-        }
+    @Override
+    public String toString() {
+        return "tenente{" +
+                "nomeTenente='" + nomeTenente + '\'' +
+                ", identificacaoTenente=" + identificacaoTenente +
+                ", tempoServico=" + tempoServico +
+                ", subordinadosTenente=" + subordinadosTenente +
+                ", imediatoTenente=" + imediatoTenente +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof tenente tenente)) return false;
+        return identificacaoTenente == tenente.identificacaoTenente && tempoServico == tenente.tempoServico && Objects.equals(nomeTenente, tenente.nomeTenente) && Objects.equals(subordinadosTenente, tenente.subordinadosTenente) && Objects.equals(imediatoTenente, tenente.imediatoTenente);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeTenente, identificacaoTenente, tempoServico, subordinadosTenente, imediatoTenente);
     }
 }

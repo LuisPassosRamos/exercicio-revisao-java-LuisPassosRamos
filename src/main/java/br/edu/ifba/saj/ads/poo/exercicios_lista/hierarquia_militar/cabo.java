@@ -73,4 +73,27 @@ public class cabo {
     public void setIdentificacaoCabo(int identificacaoCabo) {
         this.identificacaoCabo = identificacaoCabo;
     }
+
+    @Override
+    public String toString() {
+        return "cabo{" +
+                "nomeCabo='" + nomeCabo + '\'' +
+                ", identificacaoCabo=" + identificacaoCabo +
+                ", tempoServico=" + tempoServico +
+                ", subordinadosCabo=" + subordinadosCabo +
+                ", imediatoCabo=" + imediatoCabo +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof cabo cabo)) return false;
+        return identificacaoCabo == cabo.identificacaoCabo && tempoServico == cabo.tempoServico && Objects.equals(nomeCabo, cabo.nomeCabo) && Objects.equals(subordinadosCabo, cabo.subordinadosCabo) && Objects.equals(imediatoCabo, cabo.imediatoCabo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeCabo, identificacaoCabo, tempoServico, subordinadosCabo, imediatoCabo);
+    }
 }

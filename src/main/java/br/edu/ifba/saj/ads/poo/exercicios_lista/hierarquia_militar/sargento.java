@@ -77,4 +77,27 @@ public class sargento {
     public void setIdentificacaoSargento(int identificacaoSargento) {
         this.identificacaoSargento = identificacaoSargento;
     }
+
+    @Override
+    public String toString() {
+        return "sargento{" +
+                "nomeSargento='" + nomeSargento + '\'' +
+                ", identificacaoSargento=" + identificacaoSargento +
+                ", tempoServico=" + tempoServico +
+                ", imediatoSargento=" + imediatoSargento +
+                ", subordinadosSargento=" + subordinadosSargento +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof sargento sargento)) return false;
+        return identificacaoSargento == sargento.identificacaoSargento && tempoServico == sargento.tempoServico && Objects.equals(nomeSargento, sargento.nomeSargento) && Objects.equals(imediatoSargento, sargento.imediatoSargento) && Objects.equals(subordinadosSargento, sargento.subordinadosSargento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeSargento, identificacaoSargento, tempoServico, imediatoSargento, subordinadosSargento);
+    }
 }
