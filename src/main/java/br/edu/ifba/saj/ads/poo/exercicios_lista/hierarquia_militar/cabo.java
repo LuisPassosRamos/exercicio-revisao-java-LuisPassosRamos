@@ -25,6 +25,14 @@ public class cabo {
         this.subordinadosCabo = new ArrayList<>();
     }
 
+    public cabo(String nomeCabo, int identificacaoCabo, ArrayList<soldado> subordinadosCabo, sargento imediatoCabo) {
+        this.nomeCabo = nomeCabo;
+        this.identificacaoCabo = identificacaoCabo;
+        this.tempoServico = 0;
+        this.subordinadosCabo = subordinadosCabo;
+        this.imediatoCabo = imediatoCabo;
+    }
+
     public void setImediatoCabo(sargento sargento){
         sargento.addSubordinado(this);
         this.imediatoCabo = sargento;
@@ -37,25 +45,19 @@ public class cabo {
         }
     }
 
-    @Override
-    public String toString() {
-        return "cabo{" +
-                "nomeCabo='" + nomeCabo + '\'' +
-                ", identificacaoCabo=" + identificacaoCabo +
-                ", tempoServico=" + tempoServico +
-                ", subordinadosCabo=" + subordinadosCabo +
-                '}';
+    public String getNomeCabo() {
+        return nomeCabo;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof cabo cabo)) return false;
-        return identificacaoCabo == cabo.identificacaoCabo && tempoServico == cabo.tempoServico && Objects.equals(nomeCabo, cabo.nomeCabo) && Objects.equals(subordinadosCabo, cabo.subordinadosCabo);
+    public void setNomeCabo(String nomeCabo) {
+        this.nomeCabo = nomeCabo;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(nomeCabo, identificacaoCabo, tempoServico, subordinadosCabo);
+    public int getIdentificacaoCabo() {
+        return identificacaoCabo;
+    }
+
+    public void setIdentificacaoCabo(int identificacaoCabo) {
+        this.identificacaoCabo = identificacaoCabo;
     }
 }
