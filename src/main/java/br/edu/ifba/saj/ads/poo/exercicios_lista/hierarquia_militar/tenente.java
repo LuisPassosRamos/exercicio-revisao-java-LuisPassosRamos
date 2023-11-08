@@ -25,8 +25,23 @@ public class tenente {
         this.imediatoTenente = imediatoTenente;
     }
 
+    public tenente(String nomeTenente, int identificacaoTenente) {
+        this.nomeTenente = nomeTenente;
+        this.identificacaoTenente = identificacaoTenente;
+        this.tempoServico = 0;
+        this.subordinadosTenente = new ArrayList<>();
+    }
+
+    public int getTempoServico() {
+        return this.tempoServico;
+    }
+
+    public void incrementarTempoServico() {
+        this.tempoServico++;
+    }
+
     public String getNomeTenente() {
-        return nomeTenente;
+        return this.nomeTenente;
     }
 
     public void setNomeTenente(String nomeTenente) {
@@ -34,10 +49,17 @@ public class tenente {
     }
 
     public int getIdentificacaoTenente() {
-        return identificacaoTenente;
+        return this.identificacaoTenente;
     }
 
     public void setIdentificacaoTenente(int identificacaoTenente) {
         this.identificacaoTenente = identificacaoTenente;
+    }
+
+    public void addSubordinado(sargento sargento) {
+        if(!subordinadosTenente.contains(sargento)){
+            this.subordinadosTenente.add(sargento);
+            sargento.setImediatoSargento(this);
+        }
     }
 }

@@ -27,6 +27,14 @@ public class soldado {
         imediatoSoldado.addSubordinado(this);
     }
 
+    public int getTempoServico() {
+        return this.tempoServico;
+    }
+
+    public void incrementarTempoServico() {
+        this.tempoServico++;
+    }
+
     public String getNomeSoldado() {
         return this.nomeSoldado;
     }

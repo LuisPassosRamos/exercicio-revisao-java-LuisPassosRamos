@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.hierarquia_militar;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class sargento {
@@ -25,10 +26,55 @@ public class sargento {
         this.tempoServico = 0;
     }
 
+    public sargento(String nomeSargento, int identificacaoSargento, tenente imediatoSargento, ArrayList<cabo> subordinadosSargento) {
+        this.nomeSargento = nomeSargento;
+        this.identificacaoSargento = identificacaoSargento;
+        this.tempoServico = 0;
+        this.imediatoSargento = imediatoSargento;
+        this.subordinadosSargento = subordinadosSargento;
+    }
+
     public void addSubordinado(cabo cabo){
         if(!this.subordinadosSargento.contains(cabo)){
             this.subordinadosSargento.add(cabo);
             cabo.setImediatoCabo(this);
         }
+    }
+
+    public int getTempoServico() {
+        return this.tempoServico;
+    }
+
+    public void incrementarTempoServico() {
+        this.tempoServico++;
+    }
+
+    public tenente getImediatoSargento() {
+        return this.imediatoSargento;
+    }
+
+    public void setImediatoSargento(tenente imediatoSargento) {
+        this.imediatoSargento = imediatoSargento;
+        imediatoSargento.addSubordinado(this);
+    }
+
+    public List<cabo> getSubordinadosSargento() {
+        return List.copyOf(this.subordinadosSargento);
+    }
+
+    public String getNomeSargento() {
+        return this.nomeSargento;
+    }
+
+    public void setNomeSargento(String nomeSargento) {
+        this.nomeSargento = nomeSargento;
+    }
+
+    public int getIdentificacaoSargento() {
+        return this.identificacaoSargento;
+    }
+
+    public void setIdentificacaoSargento(int identificacaoSargento) {
+        this.identificacaoSargento = identificacaoSargento;
     }
 }

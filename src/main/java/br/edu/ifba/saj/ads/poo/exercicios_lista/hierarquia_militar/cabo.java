@@ -1,6 +1,7 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.hierarquia_militar;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class cabo {
@@ -45,8 +46,20 @@ public class cabo {
         }
     }
 
+    public int getTempoServico() {
+        return this.tempoServico;
+    }
+
+    public void incrementarTempoServico() {
+        this.tempoServico++;
+    }
+
+    public List<soldado> getSubordinadosCabo() {
+        return List.copyOf(this.subordinadosCabo);
+    }
+
     public String getNomeCabo() {
-        return nomeCabo;
+        return this.nomeCabo;
     }
 
     public void setNomeCabo(String nomeCabo) {
@@ -54,7 +67,7 @@ public class cabo {
     }
 
     public int getIdentificacaoCabo() {
-        return identificacaoCabo;
+        return this.identificacaoCabo;
     }
 
     public void setIdentificacaoCabo(int identificacaoCabo) {

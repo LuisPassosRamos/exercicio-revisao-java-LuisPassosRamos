@@ -5,4 +5,14 @@ public class capitao {
     private int identificacaoSoldado;
     private int tempoServico;
 
+
+
+    public int getTempoServico() {
+        return this.tempoServico;
+    }
+
+    public void incrementarTempoServico() {
+        this.tempoServico++;
+    }
+
 }
