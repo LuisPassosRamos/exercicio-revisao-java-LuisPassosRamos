@@ -4,6 +4,16 @@ import java.time.LocalDate;
 
 public class reserva {
     private boolean reservado;
-    private LocalDate reserva;
-    
+    private LocalDate dataReserva;
+    private int noitesReserva;
+    private float valorReserva;
+
+    public reserva(LocalDate dataReserva, int noitesReserva, float valorQuarto){
+        this.reservado = true;
+        this.dataReserva = dataReserva;
+        this.noitesReserva = noitesReserva;
+        this.valorReserva = valorQuarto*noitesReserva;
+    }
+
+
 }
