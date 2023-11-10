@@ -1,37 +1,31 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
-public class roupa {
+public class Roupa {
     private String nomeRoupa;
-    private String tipoRoupa;
+    private Departamento departamento;
     private float preco;
 
     private String tamanho;
     private String cor;
-    private ArrayList<departamento> departamentos;
 
-    public roupa(String nomeRoupa, String tamanho, String cor) {
+    public Roupa(String nomeRoupa, String tamanho, String cor) {
         this.nomeRoupa = nomeRoupa.toUpperCase().trim();
         this.tamanho = tamanho;
         this.cor = cor;
     }
 
-    public roupa(String nomeRoupa, String tipoRoupa, String cor, String tamanho, float preco){
+    public Roupa(String nomeRoupa, Departamento departamento, String cor, String tamanho, float preco){
         this.nomeRoupa = nomeRoupa.toUpperCase().trim();
-        this.tipoRoupa = tipoRoupa.toUpperCase().trim();
+        this.departamento = departamento;
         this.preco = preco;
         this.tamanho = tamanho;
         this.cor = cor;
     }
 
-    public String getTipoRoupa() {
-        return this.tipoRoupa;
-    }
-
-    public void setTipoRoupa(String tipoRoupa) {
-        this.tipoRoupa = tipoRoupa.toUpperCase().trim();
+    public Departamento getDepartamento() {
+        return this.departamento;
     }
 
     public String getNomeRoupa() {
@@ -68,7 +62,7 @@ public class roupa {
 
     @Override
     public String toString() {
-        return "roupa{" +
+        return "Roupa{" +
                 "nomeRoupa='" + nomeRoupa + '\'' +
                 ", preco=" + preco +
                 ", tamanho=" + tamanho +
@@ -79,12 +73,12 @@ public class roupa {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof roupa roupa)) return false;
-        return Float.compare(preco, roupa.preco) == 0 && tamanho == roupa.tamanho && Objects.equals(cor, roupa.cor);
+        if (!(o instanceof Roupa roupa)) return false;
+        return Float.compare(preco, roupa.preco) == 0 && Objects.equals(nomeRoupa, roupa.nomeRoupa) && Objects.equals(departamento, roupa.departamento) && Objects.equals(tamanho, roupa.tamanho) && Objects.equals(cor, roupa.cor);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(preco, tamanho, cor);
+        return Objects.hash(nomeRoupa, departamento, preco, tamanho, cor);
     }
 }
