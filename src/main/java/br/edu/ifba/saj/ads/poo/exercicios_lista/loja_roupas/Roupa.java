@@ -6,15 +6,8 @@ public class Roupa {
     private String nomeRoupa;
     private Departamento departamento;
     private float preco;
-
     private String tamanho;
     private String cor;
-
-    public Roupa(String nomeRoupa, String tamanho, String cor) {
-        this.nomeRoupa = nomeRoupa.toUpperCase().trim();
-        this.tamanho = tamanho;
-        this.cor = cor;
-    }
 
     public Roupa(String nomeRoupa, Departamento departamento, String cor, String tamanho, float preco){
         this.nomeRoupa = nomeRoupa.toUpperCase().trim();

@@ -7,14 +7,13 @@ public class Departamento {
     String nomeDep;
     ArrayList<Roupa> Roupas;
 
-    public Departamento(String nomeDep, ArrayList<Roupa> Roupas) {
-        this.nomeDep = nomeDep.toUpperCase().trim();
-        this.Roupas = Roupas;
-    }
-
     public Departamento(String nomeDep) {
         this.nomeDep = nomeDep.toUpperCase().trim();
         this.Roupas = new ArrayList<>();
+    }
+
+    public void criarRoupa(String nomeRoupa, String corRoupa, String tamanhoRoupa, float precoRoupa){
+        Roupas.add(new Roupa(nomeRoupa, this, corRoupa, tamanhoRoupa, precoRoupa));
     }
 
     public List<Roupa> getRoupas(){
@@ -30,11 +29,7 @@ public class Departamento {
     }
 
     public void addRoupa(Roupa roupa){
-        if (!this.Roupas.contains(roupa)) {
-           if(Objects.equals(roupa.getDepartamento(), this.getNomeDep())) {
-               Roupas.add(roupa);
-           }
-        }
+       
     }
 
     @Override
