@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class sargento {
+public class Sargento {
     private String nomeSargento;
     private int identificacaoSargento;
     private int tempoServico;
-    private tenente imediatoSargento;
-    private ArrayList<cabo> subordinadosSargento;
+    private Tenente imediatoSargento;
+    private ArrayList<Cabo> subordinadosSargento;
 
-    public sargento(String nomeSargento, int identificacaoSargento, tenente imediatoSargento) {
+    public Sargento(String nomeSargento, int identificacaoSargento, Tenente imediatoSargento) {
         this.nomeSargento = nomeSargento;
         this.identificacaoSargento = identificacaoSargento;
         this.imediatoSargento = imediatoSargento;
@@ -19,14 +19,14 @@ public class sargento {
         this.tempoServico = 0;
     }
 
-    public sargento(String nomeSargento, int identificacaoSargento) {
+    public Sargento(String nomeSargento, int identificacaoSargento) {
         this.nomeSargento = nomeSargento;
         this.identificacaoSargento = identificacaoSargento;
         this.subordinadosSargento = new ArrayList<>();
         this.tempoServico = 0;
     }
 
-    public sargento(String nomeSargento, int identificacaoSargento, tenente imediatoSargento, ArrayList<cabo> subordinadosSargento) {
+    public Sargento(String nomeSargento, int identificacaoSargento, Tenente imediatoSargento, ArrayList<Cabo> subordinadosSargento) {
         this.nomeSargento = nomeSargento;
         this.identificacaoSargento = identificacaoSargento;
         this.tempoServico = 0;
@@ -34,7 +34,7 @@ public class sargento {
         this.subordinadosSargento = subordinadosSargento;
     }
 
-    public void addSubordinado(cabo cabo){
+    public void addSubordinado(Cabo cabo){
         if(!this.subordinadosSargento.contains(cabo)){
             this.subordinadosSargento.add(cabo);
             cabo.setImediatoCabo(this);
@@ -49,16 +49,16 @@ public class sargento {
         this.tempoServico++;
     }
 
-    public tenente getImediatoSargento() {
+    public Tenente getImediatoSargento() {
         return this.imediatoSargento;
     }
 
-    public void setImediatoSargento(tenente imediatoSargento) {
+    public void setImediatoSargento(Tenente imediatoSargento) {
         this.imediatoSargento = imediatoSargento;
         imediatoSargento.addSubordinado(this);
     }
 
-    public List<cabo> getSubordinadosSargento() {
+    public List<Cabo> getSubordinadosSargento() {
         return List.copyOf(this.subordinadosSargento);
     }
 
@@ -80,7 +80,7 @@ public class sargento {
 
     @Override
     public String toString() {
-        return "sargento{" +
+        return "Sargento{" +
                 "nomeSargento='" + this.nomeSargento + '\'' +
                 ", identificacaoSargento=" + this.identificacaoSargento +
                 ", tempoServico=" + this.tempoServico +
@@ -92,8 +92,8 @@ public class sargento {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof sargento sargento)) return false;
-        return identificacaoSargento == sargento.identificacaoSargento && tempoServico == sargento.tempoServico && Objects.equals(nomeSargento, sargento.nomeSargento) && Objects.equals(imediatoSargento, sargento.imediatoSargento) && Objects.equals(subordinadosSargento, sargento.subordinadosSargento);
+        if (!(o instanceof Sargento Sargento)) return false;
+        return identificacaoSargento == Sargento.identificacaoSargento && tempoServico == Sargento.tempoServico && Objects.equals(nomeSargento, Sargento.nomeSargento) && Objects.equals(imediatoSargento, Sargento.imediatoSargento) && Objects.equals(subordinadosSargento, Sargento.subordinadosSargento);
     }
 
     @Override

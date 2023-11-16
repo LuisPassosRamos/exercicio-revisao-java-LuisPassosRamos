@@ -4,34 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class capitao {
+public class Capitao {
     private String nomeCapitao;
     private int identificacaoCapitao;
     private int tempoServico;
-    private ArrayList<tenente> subordinadosCapitao;
+    private ArrayList<Tenente> subordinadosCapitao;
 
-    public capitao(String nomeCapitao, int identificacaoCapitao, ArrayList<tenente> subordinadosCapitao) {
+    public Capitao(String nomeCapitao, int identificacaoCapitao, ArrayList<Tenente> subordinadosCapitao) {
         this.nomeCapitao = nomeCapitao;
         this.identificacaoCapitao = identificacaoCapitao;
         this.tempoServico = 0;
         this.subordinadosCapitao = subordinadosCapitao;
     }
 
-    public capitao(String nomeCapitao, int identificacaoCapitao) {
+    public Capitao(String nomeCapitao, int identificacaoCapitao) {
         this.nomeCapitao = nomeCapitao;
         this.identificacaoCapitao = identificacaoCapitao;
         this.tempoServico = 0;
         this.subordinadosCapitao = new ArrayList<>();
     }
 
-    public void addSubordinado(tenente tenente) {
-        if (!this.subordinadosCapitao.contains(tenente)){
-            this.subordinadosCapitao.add(tenente);
-            tenente.setImediatoTenente(this);
+    public void addSubordinado(Tenente Tenente) {
+        if (!this.subordinadosCapitao.contains(Tenente)){
+            this.subordinadosCapitao.add(Tenente);
+            Tenente.setImediatoTenente(this);
         }
     }
 
-    public List<tenente> getSubordinadosCapitao() {
+    public List<Tenente> getSubordinadosCapitao() {
         return List.copyOf(this.subordinadosCapitao);
     }
 
@@ -61,7 +61,7 @@ public class capitao {
 
     @Override
     public String toString() {
-        return "capitao{" +
+        return "Capitao{" +
                 "nomeCapitao='" + nomeCapitao + '\'' +
                 ", identificacaoCapitao=" + identificacaoCapitao +
                 ", tempoServico=" + tempoServico +
@@ -72,8 +72,8 @@ public class capitao {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof capitao capitao)) return false;
-        return identificacaoCapitao == capitao.identificacaoCapitao && tempoServico == capitao.tempoServico && Objects.equals(nomeCapitao, capitao.nomeCapitao) && Objects.equals(subordinadosCapitao, capitao.subordinadosCapitao);
+        if (!(o instanceof Capitao Capitao)) return false;
+        return identificacaoCapitao == Capitao.identificacaoCapitao && tempoServico == Capitao.tempoServico && Objects.equals(nomeCapitao, Capitao.nomeCapitao) && Objects.equals(subordinadosCapitao, Capitao.subordinadosCapitao);
     }
 
     @Override

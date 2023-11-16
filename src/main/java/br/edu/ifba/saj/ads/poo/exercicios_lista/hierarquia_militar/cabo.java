@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class cabo {
+public class Cabo {
     private String nomeCabo;
     private int identificacaoCabo;
     private int tempoServico;
-    private ArrayList<soldado> subordinadosCabo;
-    private sargento imediatoCabo;
+    private ArrayList<Soldado> subordinadosCabo;
+    private Sargento imediatoCabo;
 
-    public cabo(String nomeCabo, int identificacaoCabo, sargento imediatoCabo) {
+    public Cabo(String nomeCabo, int identificacaoCabo, Sargento imediatoCabo) {
         this.nomeCabo = nomeCabo;
         this.identificacaoCabo = identificacaoCabo;
         this.imediatoCabo = imediatoCabo;
@@ -19,14 +19,14 @@ public class cabo {
         this.subordinadosCabo = new ArrayList<>();
     }
 
-    public cabo(String nomeCabo, int identificacaoCabo) {
+    public Cabo(String nomeCabo, int identificacaoCabo) {
         this.nomeCabo = nomeCabo;
         this.identificacaoCabo = identificacaoCabo;
         this.tempoServico = 0;
         this.subordinadosCabo = new ArrayList<>();
     }
 
-    public cabo(String nomeCabo, int identificacaoCabo, ArrayList<soldado> subordinadosCabo, sargento imediatoCabo) {
+    public Cabo(String nomeCabo, int identificacaoCabo, ArrayList<Soldado> subordinadosCabo, Sargento imediatoCabo) {
         this.nomeCabo = nomeCabo;
         this.identificacaoCabo = identificacaoCabo;
         this.tempoServico = 0;
@@ -34,15 +34,15 @@ public class cabo {
         this.imediatoCabo = imediatoCabo;
     }
 
-    public void setImediatoCabo(sargento sargento){
-        sargento.addSubordinado(this);
-        this.imediatoCabo = sargento;
+    public void setImediatoCabo(Sargento Sargento){
+        Sargento.addSubordinado(this);
+        this.imediatoCabo = Sargento;
     }
 
-    public void addSubordinado(soldado soldado) {
-        if (!this.subordinadosCabo.contains(soldado)){
-            this.subordinadosCabo.add(soldado);
-            soldado.setImediatoSoldado(this);
+    public void addSubordinado(Soldado Soldado) {
+        if (!this.subordinadosCabo.contains(Soldado)){
+            this.subordinadosCabo.add(Soldado);
+            Soldado.setImediatoSoldado(this);
         }
     }
 
@@ -54,7 +54,7 @@ public class cabo {
         this.tempoServico++;
     }
 
-    public List<soldado> getSubordinadosCabo() {
+    public List<Soldado> getSubordinadosCabo() {
         return List.copyOf(this.subordinadosCabo);
     }
 
@@ -88,7 +88,7 @@ public class cabo {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof cabo cabo)) return false;
+        if (!(o instanceof Cabo cabo)) return false;
         return identificacaoCabo == cabo.identificacaoCabo && tempoServico == cabo.tempoServico && Objects.equals(nomeCabo, cabo.nomeCabo) && Objects.equals(subordinadosCabo, cabo.subordinadosCabo) && Objects.equals(imediatoCabo, cabo.imediatoCabo);
     }
 

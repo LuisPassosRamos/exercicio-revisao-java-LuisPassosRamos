@@ -1,28 +1,27 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.hierarquia_militar;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
-public class soldado {
+public class Soldado {
     private String nomeSoldado;
     private int identificacaoSoldado;
     private int tempoServico;
-    private cabo imediatoSoldado;
+    private Cabo imediatoSoldado;
 
-    public soldado(String nomeSoldado, int identificacaoSoldado, cabo imediatoSoldado) {
+    public Soldado(String nomeSoldado, int identificacaoSoldado, Cabo imediatoSoldado) {
         this.nomeSoldado = nomeSoldado;
         this.identificacaoSoldado = identificacaoSoldado;
         this.tempoServico = 0;
         this.imediatoSoldado = imediatoSoldado;
     }
 
-    public soldado(String nomeSoldado, int identificacaoSoldado) {
+    public Soldado(String nomeSoldado, int identificacaoSoldado) {
         this.nomeSoldado = nomeSoldado;
         this.identificacaoSoldado = identificacaoSoldado;
         this.tempoServico = 0;
     }
 
-    public void setImediatoSoldado(cabo imediatoSoldado) {
+    public void setImediatoSoldado(Cabo imediatoSoldado) {
         if (!Objects.equals(this.imediatoSoldado, imediatoSoldado)) {
             this.imediatoSoldado = imediatoSoldado;
             imediatoSoldado.addSubordinado(this);
@@ -66,7 +65,7 @@ public class soldado {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof soldado soldado)) return false;
+        if (!(o instanceof Soldado soldado)) return false;
         return identificacaoSoldado == soldado.identificacaoSoldado && tempoServico == soldado.tempoServico && Objects.equals(nomeSoldado, soldado.nomeSoldado) && Objects.equals(imediatoSoldado, soldado.imediatoSoldado);
     }
 

@@ -1,20 +1,20 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 
-import java.util.Objects;
-
 public class Roupa {
     private String nomeRoupa;
     private Departamento departamento;
     private float preco;
-    private String tamanho;
+    private Tamanho tamanho;
     private String cor;
+    private static int id;
 
-    public Roupa(String nomeRoupa, Departamento departamento, String cor, String tamanho, float preco){
+    public Roupa(String nomeRoupa, Departamento departamento, String cor, Tamanho tamanho, float preco){
         this.nomeRoupa = nomeRoupa.toUpperCase().trim();
         this.departamento = departamento;
         this.preco = preco;
         this.tamanho = tamanho;
         this.cor = cor;
+        Roupa.id++;
     }
 
     public Departamento getDepartamento() {
@@ -24,6 +24,7 @@ public class Roupa {
     public String getNomeRoupa() {
         return nomeRoupa;
     }
+
     public void setNomeRoupa(String nomeRoupa) {
         this.nomeRoupa = nomeRoupa;
     }
@@ -36,11 +37,11 @@ public class Roupa {
         return cor;
     }
 
-    public String getTamanho() {
+    public Tamanho getTamanho() {
         return tamanho;
     }
 
-    public void setTamanho(String tamanho) {
+    public void setTamanho(Tamanho tamanho) {
         this.tamanho = tamanho;
     }
 
@@ -52,26 +53,55 @@ public class Roupa {
         this.preco = preco;
     }
 
-
-    @Override
-    public String toString() {
-        return "Roupa{" +
-                "nomeRoupa='" + nomeRoupa + '\'' +
-                ", preco=" + preco +
-                ", tamanho=" + tamanho +
-                ", cor='" + cor + '\'' +
-                '}';
+    public static int getId() {
+        return id;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Roupa roupa)) return false;
-        return Float.compare(preco, roupa.preco) == 0 && Objects.equals(nomeRoupa, roupa.nomeRoupa) && Objects.equals(departamento, roupa.departamento) && Objects.equals(tamanho, roupa.tamanho) && Objects.equals(cor, roupa.cor);
+    public String toString() {
+        return "\n Roupa [nomeRoupa=" + nomeRoupa + ", preco=" + preco + ", tamanho=" + tamanho + ", cor=" + cor + ", id=" + Roupa.id + "]";
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nomeRoupa, departamento, preco, tamanho, cor);
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((nomeRoupa == null) ? 0 : nomeRoupa.hashCode());
+        result = prime * result + ((departamento == null) ? 0 : departamento.hashCode());
+        result = prime * result + Float.floatToIntBits(preco);
+        result = prime * result + ((tamanho == null) ? 0 : tamanho.hashCode());
+        result = prime * result + ((cor == null) ? 0 : cor.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Roupa other = (Roupa) obj;
+        if (nomeRoupa == null) {
+            if (other.nomeRoupa != null)
+                return false;
+        } else if (!nomeRoupa.equals(other.nomeRoupa))
+            return false;
+        if (departamento == null) {
+            if (other.departamento != null)
+                return false;
+        } else if (!departamento.equals(other.departamento))
+            return false;
+        if (Float.floatToIntBits(preco) != Float.floatToIntBits(other.preco))
+            return false;
+        if (tamanho != other.tamanho)
+            return false;
+        if (cor == null) {
+            if (other.cor != null)
+                return false;
+        } else if (!cor.equals(other.cor))
+            return false;
+        return true;
     }
 }
