@@ -31,6 +31,9 @@ public class Escola {
         professor1.addTurma(turma1);
         professor3.addTurma(turma2);
         professor5.addTurma(turma3);
+        professor2.addTurma(turma1);
+        professor4.addTurma(turma2);
+        professor6.addTurma(turma3);
 
         for (int i = 0; i < 3; i++) {
             turma1.addAluno(new Aluno("Aluno " + (i + 1), (i + 1)));
