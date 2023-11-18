@@ -7,7 +7,7 @@ public class Loja {
             departamentoMasc.addRoupa(new Roupa("camisa", departamentoMasc, "vermelho", Tamanho.M, i+1));
         }
         Carrinho carrinho1 = new Carrinho();
-        carrinho1.addRoupa(new Roupa ("camisa",departamentoMasc, "vermelho", Tamanho.M, 1));
+        carrinho1.addRoupa(new Roupa ("camisa", departamentoMasc, "vermelho", Tamanho.M, 1));
         System.out.println(carrinho1);
     }
 }

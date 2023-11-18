@@ -3,6 +3,7 @@ package br.edu.ifba.saj.ads.poo.exercicios_lista.loja_roupas;
 import java.util.ArrayList;
 import java.util.List;
 public class Departamento {
+    
     private String nomeDep;
     private ArrayList<Roupa> roupas;
 
