@@ -20,7 +20,7 @@ public class Carrinho {
         return List.copyOf(this.compras);
     }
 
-    public void limparRoupas() {
+    public void limparCompras() {
         this.compras.clear();
     }
 
