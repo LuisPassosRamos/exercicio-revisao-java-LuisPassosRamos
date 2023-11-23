@@ -6,8 +6,6 @@ public class Quarto extends Reserva{
     private static int numeroQuarto;
     private float valorNoite;
     
-    
-
     public Quarto(Categoria categoria){
         Quarto.numeroQuarto++;
         this.categoriaQuarto = categoria;
