@@ -57,12 +57,10 @@ public class Reserva {
         return false;
     }
 
-    private boolean setValorReserva(float valorQuarto) {
+    private void setValorReserva(float valorQuarto) {
         if (this.reservado && this.noitesReserva > 0 && valorQuarto >= 0) {
             this.valorReserva = (valorQuarto * noitesReserva);
-            return true;
         }
-        return false;
     }
 
     public boolean isReservado() {
