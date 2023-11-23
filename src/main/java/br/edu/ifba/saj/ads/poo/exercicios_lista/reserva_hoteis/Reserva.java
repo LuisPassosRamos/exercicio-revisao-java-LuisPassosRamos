@@ -81,4 +81,51 @@ public class Reserva {
         return this.valorReserva;
     }
 
+    @Override
+    public String toString() {
+        return "Reserva [reservado=" + reservado + ", noitesReserva=" + noitesReserva + ", valorReserva=" + valorReserva
+                + ", dataReserva=" + dataReserva + ", quandoReservado=" + quandoReservado + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (reservado ? 1231 : 1237);
+        result = prime * result + noitesReserva;
+        result = prime * result + Float.floatToIntBits(valorReserva);
+        result = prime * result + ((dataReserva == null) ? 0 : dataReserva.hashCode());
+        result = prime * result + ((quandoReservado == null) ? 0 : quandoReservado.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Reserva other = (Reserva) obj;
+        if (reservado != other.reservado)
+            return false;
+        if (noitesReserva != other.noitesReserva)
+            return false;
+        if (Float.floatToIntBits(valorReserva) != Float.floatToIntBits(other.valorReserva))
+            return false;
+        if (dataReserva == null) {
+            if (other.dataReserva != null)
+                return false;
+        } else if (!dataReserva.equals(other.dataReserva))
+            return false;
+        if (quandoReservado == null) {
+            if (other.quandoReservado != null)
+                return false;
+        } else if (!quandoReservado.equals(other.quandoReservado))
+            return false;
+        return true;
+    }
+
+
 }

@@ -1,7 +1,6 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.reserva_hoteis;
 
 public class Quarto extends Reserva{
-    private Reserva reservaQuarto;
     private Categoria categoriaQuarto;
     private static int numeroQuarto;
     private float valorNoite;
