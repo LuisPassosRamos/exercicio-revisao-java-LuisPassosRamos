@@ -9,14 +9,15 @@ public class Reserva {
     private LocalDate dataReserva;
     private LocalDate quandoReservado;
 
-    public Reserva(int noitesReserva, float valorQuarto){
+    public Reserva(int noitesReserva, float valorQuarto) {
         this.reservado = true;
         this.noitesReserva = noitesReserva;
         this.quandoReservado = LocalDate.now();
-        this.valorReserva = (valorQuarto*noitesReserva);
+        this.valorReserva = (valorQuarto * noitesReserva);
         this.dataReserva = this.quandoReservado.plusDays(noitesReserva);
     }
-    public Reserva(){
+
+    public Reserva() {
         this.valorReserva = 0;
         this.reservado = false;
         this.noitesReserva = 0;
@@ -24,51 +25,60 @@ public class Reserva {
         this.quandoReservado = null;
     }
 
-    public boolean isReservado() {
-        return reservado;
-    }
-
     public boolean setReservado(int noitesReserva, float valorQuarto) {
-        if (!this.reservado){
+        if (!this.reservado && noitesReserva > 0 && valorQuarto >= 0) {
             this.reservado = true;
             this.noitesReserva = noitesReserva;
             this.quandoReservado = LocalDate.now();
-            this.valorReserva = (valorQuarto*noitesReserva);
+            this.valorReserva = (valorQuarto * noitesReserva);
             this.dataReserva = this.quandoReservado.plusDays(noitesReserva);
             return true;
         }
-
         return false;
+    }
+
+    public boolean addNoitesReserva(int noitesReserva, float valorQuarto) {
+        if (noitesReserva > 0) {
+            this.setValorReserva(valorQuarto);
+            this.noitesReserva += noitesReserva;
+            this.dataReserva = this.quandoReservado.plusDays(this.noitesReserva);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean decNoitesReserva(int noitesReserva, float valorQuarto){
+        if (noitesReserva > 0) {
+            this.setValorReserva(valorQuarto);
+            this.noitesReserva -= noitesReserva;
+            this.dataReserva = this.quandoReservado.plusDays(this.noitesReserva);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean setValorReserva(float valorQuarto) {
+        if (this.reservado && this.noitesReserva > 0 && valorQuarto >= 0) {
+            this.valorReserva = (valorQuarto * noitesReserva);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isReservado() {
+        return this.reservado;
     }
 
     public LocalDate getDataReserva() {
-        return dataReserva;
+        return this.dataReserva;
     }
 
     public int getNoitesReserva() {
-        return noitesReserva;
-    }
-
-    public boolean setNoitesReserva(int noitesReserva, float valorQuarto) {
-        if (this.noitesReserva != noitesReserva){
-            this.setValorReserva(valorQuarto);
-            this.noitesReserva = noitesReserva;
-            this.dataReserva = this.quandoReservado.plusDays(noitesReserva);
-            return true;
-        }
-        return false;
-    
+        return this.noitesReserva;
     }
 
     public float getValorReserva() {
-        return valorReserva;
+        return this.valorReserva;
     }
-
-    private void setValorReserva(float valorQuarto) {
-        this.valorReserva = (valorQuarto*noitesReserva);
-    }   
-
-
-    
 
 }

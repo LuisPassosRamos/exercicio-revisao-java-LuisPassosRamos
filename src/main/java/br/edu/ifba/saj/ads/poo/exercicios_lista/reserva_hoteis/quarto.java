@@ -1,40 +1,38 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.reserva_hoteis;
 
-public class Quarto {
+public class Quarto extends Reserva{
     private Reserva reservaQuarto;
-    private String categoriaQuarto;
+    private Categoria categoriaQuarto;
     private static int numeroQuarto;
+    private float valorNoite;
     
     
 
-    public Quarto(String categoria){
+    public Quarto(Categoria categoria){
         Quarto.numeroQuarto++;
         this.categoriaQuarto = categoria;
-        this.reservaQuarto = new Reserva();
+
+        switch (this.categoriaQuarto) {
+            case ECONOMICO:
+                this.valorNoite = 60;
+                break;
+
+            case COMUM:
+                this.valorNoite = 80;
+                break;
+
+            case LUXO:
+                this.valorNoite = 120;
+                break;
+        }
     }
 
-
-
-    public String getCategoriaQuarto() {
-        return categoriaQuarto;
+    public float getValorNoite() {
+        return valorNoite;
     }
 
-
-
-    public void setCategoriaQuarto(String categoriaQuarto) {
-        this.categoriaQuarto = categoriaQuarto;
-    }
-
-
-
-    public Reserva getReservaQuarto() {
-        return reservaQuarto;
-    }
-
-
-
-    public void setReservaQuarto(Reserva reservaQuarto) {
-        this.reservaQuarto = reservaQuarto;
+    public Categoria getCategoriaQuarto() {
+        return this.categoriaQuarto;
     }
 
     public static int getNumeroQuarto() {
