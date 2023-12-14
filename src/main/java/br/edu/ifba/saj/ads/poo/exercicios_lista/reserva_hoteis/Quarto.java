@@ -10,12 +10,11 @@ public class Quarto {
     private static int quantidadeQuarto;
 
     public Quarto(Categoria categoria) {
-
         Quarto.quantidadeQuarto++;
         this.categoriaQuarto = categoria;
         this.reservaQuarto = new Reserva();
         this.numeroQuarto = Quarto.quantidadeQuarto;
-        
+
         switch (this.categoriaQuarto) {
             case ECONOMICO:
                 this.valorNoite = 60;
@@ -29,6 +28,9 @@ public class Quarto {
                 this.valorNoite = 120;
                 break;
         }
+    }
+    public boolean setReservado(int noitesReserva){
+        return this.reservaQuarto.setReservado(noitesReserva, this.valorNoite);
     }
 
     public boolean addNoitesReserva(int noitesReserva) {
