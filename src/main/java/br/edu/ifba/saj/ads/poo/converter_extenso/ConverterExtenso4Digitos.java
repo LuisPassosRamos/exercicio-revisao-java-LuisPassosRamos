@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.converter_extenso;
 
 public class ConverterExtenso4Digitos extends ConverterExtenso3Digitos {
 

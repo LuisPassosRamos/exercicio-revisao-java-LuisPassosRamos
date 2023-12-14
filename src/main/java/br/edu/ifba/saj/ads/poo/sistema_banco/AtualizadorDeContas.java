@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.sistema_banco;
 
 public class AtualizadorDeContas {
     private double saldoTotal = 0;

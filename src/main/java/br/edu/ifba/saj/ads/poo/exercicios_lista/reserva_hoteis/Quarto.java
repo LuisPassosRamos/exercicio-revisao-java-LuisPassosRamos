@@ -15,6 +15,7 @@ public class Quarto {
         this.categoriaQuarto = categoria;
         this.reservaQuarto = new Reserva();
         this.numeroQuarto = Quarto.quantidadeQuarto;
+        
         switch (this.categoriaQuarto) {
             case ECONOMICO:
                 this.valorNoite = 60;

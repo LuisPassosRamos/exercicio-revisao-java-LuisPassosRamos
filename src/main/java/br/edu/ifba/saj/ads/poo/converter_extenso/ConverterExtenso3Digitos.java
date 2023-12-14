@@ -1,4 +1,4 @@
-package br.edu.ifba.saj.ads.poo;
+package br.edu.ifba.saj.ads.poo.converter_extenso;
 
 public class ConverterExtenso3Digitos extends ConverterExtenso2Digitos {
     private final String[] porExtensoCentena = { "", "Cento", "Duzentos", "Trezentos", "Quatrocentos", "Quinhentos",
