@@ -14,12 +14,12 @@ public class App {
         }
         
 
-        tarefa1.setStatus(Status.CONCLUÍDA);
+        tarefa1.setStatus(Status.CONCLUIDA);
         tarefas.add(tarefa1);
 
         float contador = 0;
         for (Tarefa tarefa : tarefas) {
-            if (tarefa.getStatus() == Status.CONCLUÍDA) {
+            if (tarefa.getStatus() == Status.CONCLUIDA) {
                 contador++;
             }
         }
