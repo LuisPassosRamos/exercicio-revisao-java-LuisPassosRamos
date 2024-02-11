@@ -1,10 +1,16 @@
 package br.edu.ifba.saj.ads.poo.exercicios_lista.gestao_projeto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Projeto {
     private List<Tarefa> tarefas;
     private List<Funcionario> equipe;
+
+    public Projeto() {
+        this.tarefas = new ArrayList<>();
+        this.equipe = new ArrayList<>();
+    }
 
     public void setTarefas(Tarefa tarefa) {
         if(!this.tarefas.contains(tarefa) && tarefa.getStatus() != Status.CONCLUIDA){
