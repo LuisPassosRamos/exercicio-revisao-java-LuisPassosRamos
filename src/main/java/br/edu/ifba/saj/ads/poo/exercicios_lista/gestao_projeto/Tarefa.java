@@ -9,6 +9,11 @@ public class Tarefa {
         this.responsavel = responsavel;
     }
 
+    public Tarefa(){
+        this.status = Status.EM_ANDAMENTO;
+        this.responsavel = null;
+    }
+
     public Status getStatus() {
         return status;
     }
