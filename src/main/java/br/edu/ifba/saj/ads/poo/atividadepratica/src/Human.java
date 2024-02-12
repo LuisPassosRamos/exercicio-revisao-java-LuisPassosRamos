@@ -1,12 +1,20 @@
-
-public abstract class Human extends Entity{
+public class Human extends Entity{
+    private String role;
     private String name;
-    private int age;
+    private int number;
+    
 
-    public Human(String name, int age, int id){
+    public Human(String name, int id, String role, int number){
         super(id);
         this.name = name;
-        this.age = age;
+        this.role = role;
+        this.number = number;
+    }
+
+    public Human(String name, int id,  int number){
+        super(id);
+        this.name = name;
+        this.number = number;
     }
 
     public String getName() {
@@ -15,14 +23,26 @@ public abstract class Human extends Entity{
 
     public void setName(String name) {
         this.name = name;
+        super.setLastModification();
     }
 
-    public int getAge() {
-        return this.age;
+    public String getRole() {
+        return this.role;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setRole(String role) {
+        this.role = role;
+        super.setLastModification();
     }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+        super.setLastModification();
+    }
+
      
 }

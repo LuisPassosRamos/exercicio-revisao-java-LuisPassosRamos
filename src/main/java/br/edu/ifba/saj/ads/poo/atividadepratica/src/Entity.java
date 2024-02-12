@@ -8,7 +8,7 @@ public abstract class Entity {
     public Entity(int id){
         this.id = id;
         this.criationTime = LocalDateTime.now();
-        this.lastModification = null;
+        this.lastModification = LocalDateTime.now();
     }
 
     public LocalDateTime getCriationTime() {
@@ -19,8 +19,8 @@ public abstract class Entity {
         return this.lastModification;
     }
 
-    protected void setLastModification(LocalDateTime lastModification) {
-        this.lastModification = lastModification;
+    protected void setLastModification() {
+        this.lastModification = LocalDateTime.now();
     }
 
     public int getId() {
@@ -29,6 +29,7 @@ public abstract class Entity {
 
     protected void setId(int id) {
         this.id = id;
+        this.setLastModification();
     }
 
 }
