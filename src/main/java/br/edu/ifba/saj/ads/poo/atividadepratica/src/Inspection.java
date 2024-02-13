@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Inspection extends Entity {
     private LocalDateTime dateInspection;
@@ -17,8 +18,9 @@ public class Inspection extends Entity {
         super.setLastModification();
     }
 
-    public LocalDateTime getDateInspection() {
-        return this.dateInspection;
+    public String getDateInspection() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return this.dateInspection.format(formatter);
     }
 
     public void setDateInspection(LocalDateTime dateInspection) {
@@ -27,6 +29,40 @@ public class Inspection extends Entity {
 
     public State getStateInspection() {
         return this.stateInspection;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((dateInspection == null) ? 0 : dateInspection.hashCode());
+        result = prime * result + ((stateInspection == null) ? 0 : stateInspection.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Inspection other = (Inspection) obj;
+        if (dateInspection == null) {
+            if (other.dateInspection != null)
+                return false;
+        } else if (!dateInspection.equals(other.dateInspection))
+            return false;
+        if (stateInspection != other.stateInspection)
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Inspecao|Data da inspecao: " + this.getDateInspection() 
+        + ", Estado da inspecao: " + stateInspection + "\n";
     }    
     
 }
