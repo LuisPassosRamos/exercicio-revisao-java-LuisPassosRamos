@@ -30,8 +30,9 @@ public class Project extends Entity {
     public void taskHiring(Human newWorker) {
         if (!this.listWorkers.contains(newWorker)) {
             this.listWorkers.add(newWorker);
+            super.setLastModification();
         }
-        super.setLastModification();
+        
     }
 
     public void taskBuying(Item taskItem) {

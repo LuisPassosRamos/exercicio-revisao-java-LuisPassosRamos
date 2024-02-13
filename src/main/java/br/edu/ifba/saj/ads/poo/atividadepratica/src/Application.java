@@ -46,14 +46,13 @@ public class Application {
                         String nameEngineer = scanner.nextLine();
                         System.out.println("\nDigite o número do arquiteto: ");
 
-                        
                         try {
                             long numberEngineer = Long.parseLong(scanner.nextLine());
                             service.createEngineer(nameEngineer, numberEngineer);
                         } catch (NumberFormatException e) {
                             System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
                         }
-                        
+
                         break;
 
                     case 4:
@@ -66,9 +65,6 @@ public class Application {
                                     .println("Escolha um projeto para o arquiteto(a) ser atribuido digitando seu ID:");
                             System.out.println(service.getListProjects());
                             int optionProject = Integer.valueOf(scanner.nextLine());
-
-                            
-                            
 
                             service.assignArchitect(optionProject - 1, optionArchitect - 1);
                         } catch (IndexOutOfBoundsException e) {
@@ -87,7 +83,7 @@ public class Application {
                             System.out
                                     .println("Escolha um projeto para o engenheiro(a) ser atribuido digitando seu ID:");
                             System.out.println(service.getListProjects());
-                            int optionProject = Integer.valueOf(scanner.nextLine());                            
+                            int optionProject = Integer.valueOf(scanner.nextLine());
 
                             service.assignEngineer(optionProject - 1, optionEngineer - 1);
                         } catch (IndexOutOfBoundsException e) {
@@ -97,28 +93,41 @@ public class Application {
                         }
                         break;
                     case 6:
-                        System.out.println(service.getListProjects()+"\nEscolha o projeto que voce quer visualizar digitando seu ID");
-                        try{
-                            int optionProject = Integer.valueOf(scanner.nextLine());
-                            
-                        }catch (NumberFormatException e){
+                        System.out.println(service.getListProjects()
+                                + "\nEscolha o projeto que voce quer visualizar digitando seu ID");
+                        try {
+                            int idProject = Integer.valueOf(scanner.nextLine());
+                            service.getEspecificProject(idProject);
+
+                            System.out.println("Menu de tarefas:");
+                            System.out.println("1- Contratar trabalhadores\n2- Comprar itens\n3- Marcar inspecoes\n");
+                            int optionCase = Integer.valueOf(scanner.nextLine());
+                            switch (optionCase){
+                                case 1:
+                                System.out.println("Escolha um trabalhador para contratar digitando seu ID:");
+                                System.out.println(service.getListWorkers());
+                                int idWorker = Integer.valueOf(scanner.nextLine());
+                                service.taskProjectHiring(idProject, idWorker);
+                                
+                                break;
+                            }
+                        } catch (NumberFormatException e) {
                             System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
                         }
-                        
 
-                        System.out.println(service.getListProjects()); 
+                        System.out.println(service.getListProjects());
                         break;
                     case 7:
-                        System.out.println(service.getListArchitects()); 
+                        System.out.println(service.getListArchitects());
                         break;
                     case 8:
-                        System.out.println(service.getListEngineer()); 
+                        System.out.println(service.getListEngineer());
                         break;
-                        default:
+                    default:
                         System.out.println("Numero digitado invalido.");
                         option = -1;
                 }
-                
+
             } while (option != 0);
         }
     }
