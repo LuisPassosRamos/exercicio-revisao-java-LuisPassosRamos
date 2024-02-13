@@ -1,4 +1,4 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -27,8 +27,7 @@ public class Project extends Entity {
         setEngineerResponsible(engineerResponsible);
     }
 
-    public void taskHiring(String nameWorker, int ageWorker, long numberWorker) {
-        Human newWorker = new Human(nameWorker, listWorkers.size(), "Worker", numberWorker);
+    public void taskHiring(Human newWorker) {
         if (!this.listWorkers.contains(newWorker)) {
             this.listWorkers.add(newWorker);
         }
@@ -40,8 +39,8 @@ public class Project extends Entity {
         super.setLastModification();
     }
 
-    public void taskInspectionSchedule(int inspectionDate) {
-        if (inspectionDate.isAfter(LocalDateTime.now())) {
+    public void taskInspectionSchedule(LocalDate inspectionDate) {
+        if (inspectionDate.isAfter(LocalDate.now())) {
             listInspections.add(new Inspection(listInspections.size(), inspectionDate));
         }
         super.setLastModification();

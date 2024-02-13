@@ -1,13 +1,13 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Inspection extends Entity {
-    private LocalDateTime dateInspection;
+    private LocalDate dateInspection;
     private State stateInspection;
 
-    public Inspection(int id, LocalDateTime dateInspection) {
+    public Inspection(int id, LocalDate dateInspection) {
         super(id);
-        if (dateInspection.isAfter(LocalDateTime.now())) {
+        if (dateInspection.isAfter(LocalDate.now())) {
             this.dateInspection = dateInspection;
         }
         this.stateInspection = State.OPEN;
@@ -23,7 +23,7 @@ public class Inspection extends Entity {
         return this.dateInspection.format(formatter);
     }
 
-    public void setDateInspection(LocalDateTime dateInspection) {
+    public void setDateInspection(LocalDate dateInspection) {
         this.dateInspection = dateInspection;
     }
 

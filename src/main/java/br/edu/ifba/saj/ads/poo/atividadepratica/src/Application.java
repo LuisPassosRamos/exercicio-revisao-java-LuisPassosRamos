@@ -14,11 +14,11 @@ public class Application {
                                 + "4- Atribuir Arquiteto(a) a um Projeto\n5- Atribuir Engenheiro(a)"
                                 + "a um Projeto\n6- Ver Projetos\n7- Ver Arquitetos\n8- Ver Engenheiros\n"
                                 + "0- Sair do Menu");
-                String optionString = scanner.nextLine();
                 try {
-                    option = Integer.valueOf(optionString);
+                    option = Integer.valueOf(scanner.nextLine());
                 } catch (NumberFormatException e) {
                     System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
+                    option = -1;
                 }
 
                 switch (option) {
@@ -45,30 +45,30 @@ public class Application {
                         System.out.println("\nDigite o nome do arquiteto: ");
                         String nameEngineer = scanner.nextLine();
                         System.out.println("\nDigite o número do arquiteto: ");
-                        String numberEngineerInput = scanner.nextLine();
-                        long numberEngineer = 0;
 
+                        
                         try {
-                            numberEngineer = Long.parseLong(numberEngineerInput);
+                            long numberEngineer = Long.parseLong(scanner.nextLine());
+                            service.createEngineer(nameEngineer, numberEngineer);
                         } catch (NumberFormatException e) {
                             System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
                         }
-                        service.createEngineer(nameEngineer, numberEngineer);
+                        
                         break;
 
                     case 4:
                         try {
                             System.out.println("Escolha um arquiteto para atribuir digitando seu ID:");
                             System.out.println(service.getListArchitects());
-                            String optionArchitectString = scanner.nextLine();
+                            int optionArchitect = Integer.valueOf(scanner.nextLine());
 
                             System.out
                                     .println("Escolha um projeto para o arquiteto(a) ser atribuido digitando seu ID:");
                             System.out.println(service.getListProjects());
-                            String optionProjectString = scanner.nextLine();
+                            int optionProject = Integer.valueOf(scanner.nextLine());
 
-                            int optionArchitect = Integer.valueOf(optionArchitectString);
-                            int optionProject = Integer.valueOf(optionProjectString);
+                            
+                            
 
                             service.assignArchitect(optionProject - 1, optionArchitect - 1);
                         } catch (IndexOutOfBoundsException e) {
@@ -82,15 +82,12 @@ public class Application {
                         try {
                             System.out.println("Escolha um engenheiro(a) para atribuir digitando seu ID:");
                             System.out.println(service.getListEngineer());
-                            String optionEngineerString = scanner.nextLine();
+                            int optionEngineer = Integer.valueOf(scanner.nextLine());
 
                             System.out
                                     .println("Escolha um projeto para o engenheiro(a) ser atribuido digitando seu ID:");
                             System.out.println(service.getListProjects());
-                            String optionProjectString = scanner.nextLine();
-
-                            int optionEngineer = Integer.valueOf(optionEngineerString);
-                            int optionProject = Integer.valueOf(optionProjectString);
+                            int optionProject = Integer.valueOf(scanner.nextLine());                            
 
                             service.assignEngineer(optionProject - 1, optionEngineer - 1);
                         } catch (IndexOutOfBoundsException e) {
@@ -100,6 +97,15 @@ public class Application {
                         }
                         break;
                     case 6:
+                        System.out.println(service.getListProjects()+"\nEscolha o projeto que voce quer visualizar digitando seu ID");
+                        try{
+                            int optionProject = Integer.valueOf(scanner.nextLine());
+                            
+                        }catch (NumberFormatException e){
+                            System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
+                        }
+                        
+
                         System.out.println(service.getListProjects()); 
                         break;
                     case 7:
@@ -108,7 +114,11 @@ public class Application {
                     case 8:
                         System.out.println(service.getListEngineer()); 
                         break;
+                        default:
+                        System.out.println("Numero digitado invalido.");
+                        option = -1;
                 }
+                
             } while (option != 0);
         }
     }

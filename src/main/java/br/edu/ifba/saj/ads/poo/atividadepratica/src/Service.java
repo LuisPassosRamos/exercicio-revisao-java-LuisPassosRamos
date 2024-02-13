@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +8,7 @@ public class Service {
     private List<Project> listProjects;
     private List<Item> listItems;
     private List<Human> listEngineer;
+    private List<Human> listWorkers;
 
     public Service(){
         this.listArchitects = new ArrayList<>();
@@ -14,7 +16,6 @@ public class Service {
         this.listItems = new ArrayList<>();
         this.listEngineer = new ArrayList<>();
     }
-
 
     public void createProject(String nameProject) {
         Project myProject = new Project(listProjects.size()+1, nameProject);
@@ -38,6 +39,13 @@ public class Service {
         }
     }
 
+    public void createWorker(String nameWorker, long numberWorker, String roleWorker){
+        Human myWorker = new Human(nameWorker, this.listWorkers.size()+1, roleWorker, numberWorker);
+        if (!this.listWorkers.contains(myWorker)){
+            this.listWorkers.add(myWorker);
+        }
+    } 
+
     public void createItem (String nameItem, float valueItem){
         Item myItem = new Item(this.listItems.size()+1, nameItem, valueItem);
         if (!this.listItems.contains(myItem)){
@@ -49,24 +57,28 @@ public class Service {
         this.listProjects.get(idProject).setArquitectResponsible(this.listArchitects.get(idArchitect));
     }
 
-    public void requestInspection(int idProject, int daysInspection){
-        this.listProjects.get(idProject).taskInspectionSchedule(daysInspection);
+    public void requestInspection(int idProject, LocalDate dateInspection){
+        this.listProjects.get(idProject).taskInspectionSchedule(dateInspection);
     }
 
     public void assignEngineer(int idProject, int idEngineer){
         this.listProjects.get(idProject).setArquitectResponsible(this.listEngineer.get(idEngineer));
     }
 
+    public void taskProjectHiring(int idProject, int idWorker){
+        this.listProjects.get(idProject).taskHiring(this.listWorkers.get(idWorker));
+    }
+
     public List<Human> getListArchitects() {
-        return Collections.unmodifiableList(listArchitects);
+        return Collections.unmodifiableList(this.listArchitects);
     }
 
     public List<Project> getListProjects() {
-        return Collections.unmodifiableList(listProjects);
+        return Collections.unmodifiableList(this.listProjects);
     }
 
     public List<Human> getListEngineer() {
-        return Collections.unmodifiableList(listEngineer);
+        return Collections.unmodifiableList(this.listEngineer);
     }
 
     
