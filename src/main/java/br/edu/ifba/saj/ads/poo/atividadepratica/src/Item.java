@@ -1,4 +1,4 @@
-public class Item extends Entity{
+public class Item extends Entity {
 
     private String nameItem;
     private float valueItem;
@@ -27,6 +27,37 @@ public class Item extends Entity{
         super.setLastModification();
     }
 
-    
-    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + ((nameItem == null) ? 0 : nameItem.hashCode());
+        result = prime * result + Float.floatToIntBits(valueItem);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Item other = (Item) obj;
+        if (nameItem == null) {
+            if (other.nameItem != null)
+                return false;
+        } else if (!nameItem.equals(other.nameItem))
+            return false;
+        if (Float.floatToIntBits(valueItem) != Float.floatToIntBits(other.valueItem))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Item [nameItem=" + nameItem + ", valueItem=" + valueItem + "]";
+    }
+
 }

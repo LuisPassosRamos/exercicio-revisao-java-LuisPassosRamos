@@ -13,13 +13,13 @@ public class Inspection extends Entity {
         this.stateInspection = State.OPEN;
     }
 
-    public void doneInspection(){
+    public void doneInspection() {
         this.stateInspection = State.CLOSED;
         super.setLastModification();
     }
 
     public String getDateInspection() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return this.dateInspection.format(formatter);
     }
 
@@ -61,8 +61,8 @@ public class Inspection extends Entity {
 
     @Override
     public String toString() {
-        return "Inspecao|Data da inspecao: " + this.getDateInspection() 
-        + ", Estado da inspecao: " + stateInspection + "\n";
-    }    
-    
+        return "Inspecao|Data da inspecao: " + this.getDateInspection()
+                + ", Estado da inspecao: " + stateInspection + "\n";
+    }
+
 }

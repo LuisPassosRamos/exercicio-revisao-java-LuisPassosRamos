@@ -15,6 +15,7 @@ public class Service {
         this.listProjects = new ArrayList<>();
         this.listItems = new ArrayList<>();
         this.listEngineer = new ArrayList<>();
+        this.listWorkers = new ArrayList<>();
     }
 
     public void createProject(String nameProject) {
@@ -28,6 +29,11 @@ public class Service {
     public void createArchitect(String nameArchitect, long numberArchitect) {
         Human myArchitect = new Human(nameArchitect, listArchitects.size() + 1, "Arquiteto(a)", numberArchitect);
         if (!listArchitects.contains(myArchitect)) {
+            for (Human human : listArchitects) {
+                if (human.getName() == myArchitect.getName() && human.getNumber() == myArchitect.getNumber()) {
+                    return;
+                }
+            }
             listArchitects.add(myArchitect);
         }
     }
@@ -69,6 +75,10 @@ public class Service {
         this.listProjects.get(idProject).taskHiring(this.listWorkers.get(idWorker));
     }
 
+    public void taskProjectBuying(int idProject, int idItem) {
+        this.listProjects.get(idProject).taskBuying(this.listItems.get(idItem));
+    }
+
     public Project getEspecificArchitect(int idArchitect) {
         return this.listProjects.get(idArchitect);
     }
@@ -99,6 +109,65 @@ public class Service {
 
     public List<Human> getListWorkers() {
         return Collections.unmodifiableList(this.listWorkers);
+    }
+
+    public List<Item> getListItems() {
+        return Collections.unmodifiableList(this.listItems);
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((listArchitects == null) ? 0 : listArchitects.hashCode());
+        result = prime * result + ((listProjects == null) ? 0 : listProjects.hashCode());
+        result = prime * result + ((listItems == null) ? 0 : listItems.hashCode());
+        result = prime * result + ((listEngineer == null) ? 0 : listEngineer.hashCode());
+        result = prime * result + ((listWorkers == null) ? 0 : listWorkers.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Service other = (Service) obj;
+        if (listArchitects == null) {
+            if (other.listArchitects != null)
+                return false;
+        } else if (!listArchitects.equals(other.listArchitects))
+            return false;
+        if (listProjects == null) {
+            if (other.listProjects != null)
+                return false;
+        } else if (!listProjects.equals(other.listProjects))
+            return false;
+        if (listItems == null) {
+            if (other.listItems != null)
+                return false;
+        } else if (!listItems.equals(other.listItems))
+            return false;
+        if (listEngineer == null) {
+            if (other.listEngineer != null)
+                return false;
+        } else if (!listEngineer.equals(other.listEngineer))
+            return false;
+        if (listWorkers == null) {
+            if (other.listWorkers != null)
+                return false;
+        } else if (!listWorkers.equals(other.listWorkers))
+            return false;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Service [listArchitects=" + listArchitects + ", listProjects=" + listProjects + ", listItems="
+                + listItems + ", listEngineer=" + listEngineer + ", listWorkers=" + listWorkers + "]";
     }
 
 }

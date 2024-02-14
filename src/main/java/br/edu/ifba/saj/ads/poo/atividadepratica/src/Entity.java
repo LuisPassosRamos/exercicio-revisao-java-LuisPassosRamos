@@ -6,7 +6,7 @@ public abstract class Entity {
     private LocalDateTime criationTime;
     private LocalDateTime lastModification;
 
-    public Entity(int id){
+    public Entity(int id) {
         this.id = id;
         this.criationTime = LocalDateTime.now();
         this.lastModification = LocalDateTime.now();

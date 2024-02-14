@@ -1,7 +1,7 @@
 public class Stage extends Entity {
     private float progressStage;
     private String nameStage;
-    
+
     public Stage(int id, String nameStage) {
         super(id);
         this.nameStage = nameStage;
@@ -50,7 +50,7 @@ public class Stage extends Entity {
 
     @Override
     public String toString() {
-        return "Etapa|Progresso da etapa: " + progressStage + ", Nome da etapa: " + nameStage + "\n";
+        return "Etapa|Progresso da etapa: " + progressStage + ", Nome da etapa: " + nameStage;
     }
-    
+
 }

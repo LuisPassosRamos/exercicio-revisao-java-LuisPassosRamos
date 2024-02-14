@@ -32,7 +32,7 @@ public class Project extends Entity {
             this.listWorkers.add(newWorker);
             super.setLastModification();
         }
-        
+
     }
 
     public void taskBuying(Item taskItem) {
@@ -165,11 +165,7 @@ public class Project extends Entity {
 
     @Override
     public String toString() {
-        return "Projeto|ID: " + super.getId() + ", Lista de trabalhadores: " + this.listWorkers 
-                +", Lista de inspecoes: " + this.listInspections
-                +", Nome do projeto: " + nameProject + ", Etapa do projeto:" + stageProject 
-                + ", Arquiteto responsavel:" + arquitectResponsible + ", Engenheiro responsavel: " 
-                + engineerResponsible + ", Ultima modificacao: " + super.getLastModification() + "\n";
+        return "Projeto|ID: " + super.getId() + ", Nome do projeto: " + nameProject + "\n";
     }
 
 }
