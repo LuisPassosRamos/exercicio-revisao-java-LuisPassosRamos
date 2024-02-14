@@ -13,9 +13,19 @@ public class Inspection extends Entity {
         this.stateInspection = State.OPEN;
     }
 
+    public Inspection(int id) {
+        super(id);
+        dateInspection = LocalDate.now();
+        this.stateInspection = State.CLOSED;
+    }
+
     public void doneInspection() {
         this.stateInspection = State.CLOSED;
         super.setLastModification();
+    }
+
+    public LocalDate getDateInspectionNoFormatter() {
+        return this.dateInspection;
     }
 
     public String getDateInspection() {

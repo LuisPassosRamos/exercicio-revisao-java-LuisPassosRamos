@@ -122,20 +122,58 @@ public class Application {
                         System.out.println(service.getListProjects()
                                 + "\nEscolha o projeto que voce quer gerenciar digitando seu ID");
                         try {
-                            int idProject = Integer.valueOf(scanner.nextLine());
-                            service.getEspecificProject(idProject - 1);
+                            int idProject = Integer.valueOf(scanner.nextLine()) - 1;
+                            service.getListProjects().get(idProject);
                             do {
                                 System.out.println("Menu gerenciamento de projeto:");
                                 System.out.println(
-                                        "1- Ver etapa e progresso\n2- Ver arquiteto(a) responsavel\n3- Ver engenheiro(a) responsavel"
-                                                + "\n4- Menu de tarefas\n5- Registros");
+                                        "1- Ver etapa e progresso\n2- Ver arquiteto(a) responsavel\n3- Ver engenheiro(a) responsavel\n"
+                                                + "4- Ver trabalhadores\n5- Ver data da ultima inspecao \n6- Menu de tarefas\n7- Registros");
                                 int optionMenuProject = Integer.valueOf(scanner.nextLine());
                                 switch (optionMenuProject) {
                                     case 1:
-                                        service.getListProjects().get(idProject).getStageProject();
+                                        System.out.println(service.getListProjects().get(idProject).getStageProject());
+                                        do {
+                                            System.out.println(
+                                                    "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");
+                                            option = Integer.valueOf(scanner.nextLine());
+                                        } while (option > 1 || option < 0);
                                         break;
-
+                                    case 2:
+                                        System.out.println(
+                                                service.getEspecificProject(idProject).getArquitectResponsible());
+                                        do {
+                                            System.out.println(
+                                                    "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");
+                                            option = Integer.valueOf(scanner.nextLine());
+                                        } while (option > 1 || option < 0);
+                                        break;
+                                    case 3:
+                                        System.out.println(
+                                                service.getEspecificProject(idProject).getEngineerResponsible());
+                                        do {
+                                            System.out.println(
+                                                    "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");
+                                            option = Integer.valueOf(scanner.nextLine());
+                                        } while (option > 1 || option < 0);
+                                        break;
                                     case 4:
+                                        System.out.println(service.getEspecificProject(idProject).getListWorkers());
+                                        do {
+                                            System.out.println(
+                                                    "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");
+                                            option = Integer.valueOf(scanner.nextLine());
+                                        } while (option > 1 || option < 0);
+                                        break;
+                                    case 5:
+                                        System.out.println(service.getEspecificProject(idProject).getLastInspectionDate());
+                                        do {
+                                            System.out.println(
+                                                    "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");
+                                            option = Integer.valueOf(scanner.nextLine());
+                                        } while (option > 1 || option < 0);
+                                        break;
+                                    case 6:
                                         System.out.println("Menu de tarefas:");
                                         System.out.println(
                                                 "1- Contratar trabalhadores\n2- Comprar itens\n3- Marcar inspecoes\n");
@@ -157,10 +195,63 @@ public class Application {
                                             case 3:
                                                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                                                 System.out.println("Digite a data de inspecao desejada:");
-                                                LocalDate dateInspection = LocalDate.parse(scanner.nextLine(), formatter);
-                                                service.requestInspection(idProject, dateInspection);
+                                                LocalDate dateInspection = LocalDate.parse(scanner.nextLine(),
+                                                        formatter);
+                                                if (dateInspection.isAfter(LocalDate.now())) {
+                                                    service.requestInspection(idProject, dateInspection);
+                                                }
                                                 break;
 
+                                        }
+                                        break;
+                                    case 7:
+                                        System.out.println("Menu de registros:");
+                                        System.out.println(
+                                                "1- Ver registros\n2-Criar novo registro \n3- Remover registro\n");
+                                        optionCase = Integer.valueOf(scanner.nextLine());
+                                        switch (optionCase) {
+                                            case 1:
+                                                service.getEspecificProject(idProject).getListRecords();
+                                                do {
+                                                    System.out.println(
+                                                            "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");
+                                                    option = Integer.valueOf(scanner.nextLine());
+                                                } while (option > 1 || option < 0);
+                                                break;
+                                            case 2:
+                                                System.out.println(
+                                                        "Digite 1 para criar registro de problema e 2 para criar registro de atraso:");
+                                                int typeRecord = Integer.valueOf(scanner.nextLine());
+                                                switch (typeRecord) {
+                                                    case 1:
+                                                        System.out.println("Digite o problema a ser registrado:");
+                                                        String problemRecordString = scanner.nextLine();
+                                                        if (problemRecordString != null) {
+                                                            service.getEspecificProject(idProject).setListRecord(
+                                                                    problemRecordString, TypeRecord.PROBLEM);
+
+                                                        }
+                                                        break;
+                                                    case 2:
+                                                        System.out.println("Digite o atraso a ser registrado:");
+                                                        String delayRecordString = scanner.nextLine();
+                                                        if (delayRecordString != null) {
+                                                            service.getEspecificProject(idProject)
+                                                                    .setListRecord(delayRecordString, TypeRecord.DELAY);
+
+                                                        }
+                                                        break;
+                                                    case 3:
+                                                        System.out.println(
+                                                                "Escolha qual registro remover digitando seu ID:");
+                                                        service.getEspecificProject(idProject).getListRecords();
+                                                        int idRemoveRecord = Integer.valueOf(scanner.nextLine());
+                                                        service.getEspecificProject(idProject)
+                                                                .removeRecord(idRemoveRecord - 1);
+                                                        break;
+                                                }
+
+                                                break;
                                         }
                                         break;
                                 }
@@ -168,9 +259,8 @@ public class Application {
                         } catch (NumberFormatException e) {
                             System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
                         } catch (IndexOutOfBoundsException e) {
-                            System.out.println("Numero digitado excede o numero de projetos criados.");
+                            System.out.println("Numero digitado excede o numero de objetos criados.");
                         }
-
 
                         break;
 
