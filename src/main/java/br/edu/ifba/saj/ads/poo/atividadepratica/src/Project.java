@@ -10,16 +10,27 @@ public class Project extends Entity {
     private List<Stage> stageProject;
     private Human arquitectResponsible;
     private Human engineerResponsible;
+    private List<Record> listRecords;
 
     public Project(int id, String nameProject) {
         super(id);
+        this.listInspections = new ArrayList<>();
+        this.listInspections.add(new Inspection(1));
+        this.listRecords = new ArrayList<>();
+        this.listWorkers = new ArrayList<>();
         this.stageProject = new ArrayList<>();
         this.stageProject.add(new Stage(1, "Planning"));
         this.nameProject = nameProject;
+        this.arquitectResponsible = null;
+        this.engineerResponsible = null;
     }
 
     public Project(int id, String nameProject, Human arquitectResponsible, Human engineerResponsible) {
         super(id);
+        this.listInspections = new ArrayList<>();
+        this.listInspections.add(new Inspection(1));
+        this.listRecords = new ArrayList<>();
+        this.listWorkers = new ArrayList<>();
         this.stageProject = new ArrayList<>();
         this.stageProject.add(new Stage(1, "Planning"));
         this.nameProject = nameProject;
@@ -80,8 +91,35 @@ public class Project extends Entity {
     }
 
     public void setEngineerResponsible(Human engineerResponsible) {
-        this.engineerResponsible = engineerResponsible;
-        super.setLastModification();
+        if (this.engineerResponsible == null || !this.engineerResponsible.equals(engineerResponsible)) {
+            this.engineerResponsible = engineerResponsible;
+            super.setLastModification();
+        }
+    }
+
+    public void setListRecord(String subjectRecord, TypeRecord typeRecord) {
+        Record myRecord = new Record(subjectRecord, this.listRecords.size() + 1, typeRecord);
+        if (!this.listRecords.contains(myRecord)) {
+            this.listRecords.add(myRecord);
+        }
+    }
+
+    public void removeRecord(int idRecord) {
+        this.listRecords.remove(idRecord);
+    }
+
+    public Inspection getLastInspectionDate() {
+        for (Inspection inspection : listInspections) {
+            if (inspection.getStateInspection() == State.CLOSED && inspection.getDateInspectionNoFormatter().isBefore(LocalDate.now()) ){
+                return inspection;
+            }
+        }
+        
+        return this.listInspections.get(1);
+    }
+
+    public List<Record> getListRecords() {
+        return Collections.unmodifiableList(this.listRecords);
     }
 
     public List<Human> getListWorkers() {
@@ -111,13 +149,14 @@ public class Project extends Entity {
     @Override
     public int hashCode() {
         final int prime = 31;
-        int result = 1;
+        int result = super.hashCode();
         result = prime * result + ((listWorkers == null) ? 0 : listWorkers.hashCode());
         result = prime * result + ((listInspections == null) ? 0 : listInspections.hashCode());
         result = prime * result + ((nameProject == null) ? 0 : nameProject.hashCode());
         result = prime * result + ((stageProject == null) ? 0 : stageProject.hashCode());
         result = prime * result + ((arquitectResponsible == null) ? 0 : arquitectResponsible.hashCode());
         result = prime * result + ((engineerResponsible == null) ? 0 : engineerResponsible.hashCode());
+        result = prime * result + ((listRecords == null) ? 0 : listRecords.hashCode());
         return result;
     }
 
@@ -125,7 +164,7 @@ public class Project extends Entity {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (obj == null)
+        if (!super.equals(obj))
             return false;
         if (getClass() != obj.getClass())
             return false;
@@ -159,6 +198,11 @@ public class Project extends Entity {
             if (other.engineerResponsible != null)
                 return false;
         } else if (!engineerResponsible.equals(other.engineerResponsible))
+            return false;
+        if (listRecords == null) {
+            if (other.listRecords != null)
+                return false;
+        } else if (!listRecords.equals(other.listRecords))
             return false;
         return true;
     }
