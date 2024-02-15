@@ -4,164 +4,161 @@ import java.util.Collections;
 import java.util.List;
 
 public class Service {
-    private List<Human> listArchitects;
-    private List<Project> listProjects;
-    private List<Item> listItems;
-    private List<Human> listEngineer;
-    private List<Human> listWorkers;
+    private static List<Human> listArchitects = new ArrayList<>();
+    private static List<Project> listProjects = new ArrayList<>();
+    private static List<Item> listItems = new ArrayList<>();
+    private static List<Human> listEngineer = new ArrayList<>();
+    private static List<Human> listWorkers = new ArrayList<>();
 
     public Service() {
-        this.listArchitects = new ArrayList<>();
-        this.listProjects = new ArrayList<>();
-        this.listItems = new ArrayList<>();
-        this.listEngineer = new ArrayList<>();
-        this.listWorkers = new ArrayList<>();
     }
 
-    public void createProject(String nameProject) {
+    public void createProject(String nameProject) throws DuplicatedObjException {
         Project myProject = new Project(listProjects.size() + 1, nameProject);
-        if (!listProjects.contains(myProject)) {
+        if (!listProjects.contains(myProject) && nameProject != null) {
             listProjects.add(myProject);
+        }else{
+            throw new DuplicatedObjException("Objeto duplicado");
         }
-
     }
 
-    public void createArchitect(String nameArchitect, long numberArchitect) {
+    public void createArchitect(String nameArchitect, long numberArchitect) throws DuplicatedObjException {
         Human myArchitect = new Human(nameArchitect, listArchitects.size() + 1, "Arquiteto(a)", numberArchitect);
         if (!listArchitects.contains(myArchitect)) {
-            for (Human human : listArchitects) {
-                if (human.getName() == myArchitect.getName() && human.getNumber() == myArchitect.getNumber()) {
-                    return;
-                }
-            }
             listArchitects.add(myArchitect);
+        }else{
+            throw new DuplicatedObjException("Objeto duplicado");
         }
     }
 
-    public void createEngineer(String nameEngineer, long numberEngineer) {
-        Human myEngineer = new Human(nameEngineer, this.listEngineer.size() + 1, "Engenheiro(a)", numberEngineer);
-        if (!this.listEngineer.contains(myEngineer)) {
-            this.listEngineer.add(myEngineer);
+    public void createEngineer(String nameEngineer, long numberEngineer) throws DuplicatedObjException {
+        Human myEngineer = new Human(nameEngineer, listEngineer.size() + 1, "Engenheiro(a)", numberEngineer);
+        if (!listEngineer.contains(myEngineer)) {
+            listEngineer.add(myEngineer);
+        }else{
+            throw new DuplicatedObjException("Objeto duplicado");
         }
     }
 
-    public void createWorker(String nameWorker, long numberWorker, String roleWorker) {
-        Human myWorker = new Human(nameWorker, this.listWorkers.size() + 1, roleWorker, numberWorker);
-        if (!this.listWorkers.contains(myWorker)) {
-            this.listWorkers.add(myWorker);
+    public void createWorker(String nameWorker, long numberWorker, String roleWorker) throws DuplicatedObjException {
+        Human myWorker = new Human(nameWorker, listWorkers.size() + 1, roleWorker, numberWorker);
+        if (!listWorkers.contains(myWorker)) {
+            listWorkers.add(myWorker);
+        }else{
+            throw new DuplicatedObjException("Objeto duplicado");
         }
     }
 
-    public void createItem(String nameItem, float valueItem) {
-        Item myItem = new Item(this.listItems.size() + 1, nameItem, valueItem);
-        if (!this.listItems.contains(myItem)) {
-            this.listItems.add(myItem);
+    public void createItem(String nameItem, float valueItem) throws DuplicatedObjException {
+        Item myItem = new Item(listItems.size() + 1, nameItem, valueItem);
+        if (!listItems.contains(myItem)) {
+            listItems.add(myItem);
+        }else{
+            throw new DuplicatedObjException("Objeto duplicado");
         }
     }
 
-    public void assignArchitect(int idProject, int idArchitect) {
-        this.listProjects.get(idProject).setArquitectResponsible(this.listArchitects.get(idArchitect));
+    public void assignArchitect(int idProject, int idArchitect) throws DuplicatedObjException {
+        try {
+            listProjects.get(idProject).setArquitectResponsible(listArchitects.get(idArchitect));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+        }
     }
 
     public void requestInspection(int idProject, LocalDate dateInspection) {
-        this.listProjects.get(idProject).taskInspectionSchedule(dateInspection);
+        try {
+            listProjects.get(idProject).taskInspectionSchedule(dateInspection);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+        }
+
     }
 
-    public void assignEngineer(int idProject, int idEngineer) {
-        this.listProjects.get(idProject).setArquitectResponsible(this.listEngineer.get(idEngineer));
+    public void assignEngineer(int idProject, int idEngineer) throws DuplicatedObjException {
+        try {
+            listProjects.get(idProject).setEngineerResponsible(listEngineer.get(idEngineer));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+        }
+
     }
 
     public void taskProjectHiring(int idProject, int idWorker) {
-        this.listProjects.get(idProject).taskHiring(this.listWorkers.get(idWorker));
+        try {
+            listProjects.get(idProject).taskHiring(listWorkers.get(idWorker));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+        }
+
     }
 
     public void taskProjectBuying(int idProject, int idItem) {
-        this.listProjects.get(idProject).taskBuying(this.listItems.get(idItem));
+        try {
+            listProjects.get(idProject).taskBuying(listItems.get(idItem));
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+        }
+
     }
 
-    public Project getEspecificArchitect(int idArchitect) {
-        return this.listProjects.get(idArchitect);
+    public Human getEspecificArchitect(int idArchitect) {
+        try {
+            return listArchitects.get(idArchitect);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+            return null;
+        }
+
     }
 
-    public Project getEspecificEngineer(int idEngineer) {
-        return this.listProjects.get(idEngineer);
+    public Human getEspecificEngineer(int idEngineer) {
+        try {
+            return listEngineer.get(idEngineer);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+            return null;
+        }
+
     }
 
     public Project getEspecificProject(int idProject) {
-        return this.listProjects.get(idProject);
+        try {
+            return listProjects.get(idProject);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+            return null;
+        }
+
     }
 
-    public Project getEspecificWorker(int idWorker) {
-        return this.listProjects.get(idWorker);
+    public Human getEspecificWorker(int idWorker) {
+        try {
+            return listWorkers.get(idWorker);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Numero digitado excede o numero de objetos criados.");
+            return null;
+        }
     }
 
     public List<Human> getListArchitects() {
-        return Collections.unmodifiableList(this.listArchitects);
+        return Collections.unmodifiableList(listArchitects);
     }
 
     public List<Project> getListProjects() {
-        return Collections.unmodifiableList(this.listProjects);
+        return Collections.unmodifiableList(listProjects);
     }
 
     public List<Human> getListEngineer() {
-        return Collections.unmodifiableList(this.listEngineer);
+        return Collections.unmodifiableList(listEngineer);
     }
 
     public List<Human> getListWorkers() {
-        return Collections.unmodifiableList(this.listWorkers);
+        return Collections.unmodifiableList(listWorkers);
     }
 
     public List<Item> getListItems() {
-        return Collections.unmodifiableList(this.listItems);
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((listArchitects == null) ? 0 : listArchitects.hashCode());
-        result = prime * result + ((listProjects == null) ? 0 : listProjects.hashCode());
-        result = prime * result + ((listItems == null) ? 0 : listItems.hashCode());
-        result = prime * result + ((listEngineer == null) ? 0 : listEngineer.hashCode());
-        result = prime * result + ((listWorkers == null) ? 0 : listWorkers.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Service other = (Service) obj;
-        if (listArchitects == null) {
-            if (other.listArchitects != null)
-                return false;
-        } else if (!listArchitects.equals(other.listArchitects))
-            return false;
-        if (listProjects == null) {
-            if (other.listProjects != null)
-                return false;
-        } else if (!listProjects.equals(other.listProjects))
-            return false;
-        if (listItems == null) {
-            if (other.listItems != null)
-                return false;
-        } else if (!listItems.equals(other.listItems))
-            return false;
-        if (listEngineer == null) {
-            if (other.listEngineer != null)
-                return false;
-        } else if (!listEngineer.equals(other.listEngineer))
-            return false;
-        if (listWorkers == null) {
-            if (other.listWorkers != null)
-                return false;
-        } else if (!listWorkers.equals(other.listWorkers))
-            return false;
-        return true;
+        return Collections.unmodifiableList(listItems);
     }
 
     @Override

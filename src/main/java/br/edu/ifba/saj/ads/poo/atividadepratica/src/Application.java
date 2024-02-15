@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Application {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DuplicatedObjException {
         Service service = new Service();
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Bem-vindo.");
@@ -83,20 +83,20 @@ public class Application {
 
                     case 5:
                         try {
+
                             System.out.println("Escolha um arquiteto para atribuir digitando seu ID:");
                             System.out.println(service.getListArchitects());
                             int optionArchitect = Integer.valueOf(scanner.nextLine());
 
                             System.out
-                                    .println("Escolha um projeto para o arquiteto(a) ser atribuido digitando seu ID:");
+                                    .println(
+                                            "Escolha um projeto para o arquiteto(a) ser atribuido digitando seu ID:");
                             System.out.println(service.getListProjects());
                             int optionProject = Integer.valueOf(scanner.nextLine());
 
                             service.assignArchitect(optionProject - 1, optionArchitect - 1);
-                        } catch (IndexOutOfBoundsException e) {
-                            System.out.println("Numero digitado excede o numero de objetos criados.");
-                        } catch (NumberFormatException e) {
-                            System.out.println("Número inválido. Certifique-se de inserir um valor numérico.");
+
+                        } catch (DuplicatedObjException e) {
                         }
 
                         break;
@@ -166,7 +166,8 @@ public class Application {
                                         } while (option > 1 || option < 0);
                                         break;
                                     case 5:
-                                        System.out.println(service.getEspecificProject(idProject).getLastInspectionDate());
+                                        System.out.println(
+                                                service.getEspecificProject(idProject).getLastInspectionDate());
                                         do {
                                             System.out.println(
                                                     "Digite 0 para encerrar o programa ou 1 para voltar pro menu:");

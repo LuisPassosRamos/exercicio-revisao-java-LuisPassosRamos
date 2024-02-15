@@ -4,9 +4,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class Project extends Entity {
+    private String nameProject;
     private List<Human> listWorkers;
     private List<Inspection> listInspections;
-    private String nameProject;
     private List<Stage> stageProject;
     private Human arquitectResponsible;
     private Human engineerResponsible;
@@ -25,7 +25,8 @@ public class Project extends Entity {
         this.engineerResponsible = null;
     }
 
-    public Project(int id, String nameProject, Human arquitectResponsible, Human engineerResponsible) {
+    public Project(int id, String nameProject, Human arquitectResponsible, Human engineerResponsible)
+            throws DuplicatedObjException {
         super(id);
         this.listInspections = new ArrayList<>();
         this.listInspections.add(new Inspection(1));
@@ -43,7 +44,6 @@ public class Project extends Entity {
             this.listWorkers.add(newWorker);
             super.setLastModification();
         }
-
     }
 
     public void taskBuying(Item taskItem) {
@@ -78,43 +78,55 @@ public class Project extends Entity {
 
     public void setFinishingDone() {
         stageProject.get(3).setProgressStage(100);
-        super.setLastModification();
+
     }
 
-    public void setArquitectResponsible(Human arquitectResponsible) {
-
+    public void setArquitectResponsible(Human arquitectResponsible) throws DuplicatedObjException {
         if (this.arquitectResponsible == null || !this.arquitectResponsible.equals(arquitectResponsible)) {
             this.arquitectResponsible = arquitectResponsible;
             super.setLastModification();
+        } else {
+            throw new DuplicatedObjException("Objeto duplicado");
         }
-
     }
 
-    public void setEngineerResponsible(Human engineerResponsible) {
+    public void setEngineerResponsible(Human engineerResponsible) throws DuplicatedObjException {
         if (this.engineerResponsible == null || !this.engineerResponsible.equals(engineerResponsible)) {
             this.engineerResponsible = engineerResponsible;
             super.setLastModification();
+        } else {
+            throw new DuplicatedObjException("Objeto duplicado");
         }
     }
 
-    public void setListRecord(String subjectRecord, TypeRecord typeRecord) {
+    public void setListRecord(String subjectRecord, TypeRecord typeRecord) throws DuplicatedObjException {
         Record myRecord = new Record(subjectRecord, this.listRecords.size() + 1, typeRecord);
         if (!this.listRecords.contains(myRecord)) {
             this.listRecords.add(myRecord);
+        } else {
+            throw new DuplicatedObjException("Arquiteto duplicado");
         }
+
     }
 
     public void removeRecord(int idRecord) {
-        this.listRecords.remove(idRecord);
+        try {
+            this.listRecords.remove(idRecord);
+            super.setLastModification();
+        } catch (IndexOutOfBoundsException e) {
+
+        }
+
     }
 
     public Inspection getLastInspectionDate() {
         for (Inspection inspection : listInspections) {
-            if (inspection.getStateInspection() == State.CLOSED && inspection.getDateInspectionNoFormatter().isBefore(LocalDate.now()) ){
+            if (inspection.getStateInspection() == State.CLOSED
+                    && inspection.getDateInspectionNoFormatter().isBefore(LocalDate.now())) {
                 return inspection;
             }
         }
-        
+
         return this.listInspections.get(1);
     }
 
